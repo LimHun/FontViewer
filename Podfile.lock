@@ -1,0 +1,16 @@
+PODS:
+  - MarqueeLabel (4.0.0)
+
+DEPENDENCIES:
+  - MarqueeLabel
+
+SPEC REPOS:
+  trunk:
+    - MarqueeLabel
+
+SPEC CHECKSUMS:
+  MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
+
+PODFILE CHECKSUM: dae655dfa1837f3b81a3b7edb214b1bc93143f38
+
+COCOAPODS: 1.8.4

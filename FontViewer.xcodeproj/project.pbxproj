@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09F78A53857FB56EBE793627 /* Pods_FontViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FE4AD5B4FBF5D47B5BBEC1 /* Pods_FontViewer.framework */; };
+		401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC3235E0F0E006B97CB /* AppDelegate.swift */; };
+		401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC5235E0F0E006B97CB /* SceneDelegate.swift */; };
+		401DEEC8235E0F0E006B97CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC7235E0F0E006B97CB /* ViewController.swift */; };
+		401DEECB235E0F0E006B97CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401DEEC9235E0F0E006B97CB /* Main.storyboard */; };
+		401DEECD235E0F0F006B97CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401DEECC235E0F0F006B97CB /* Assets.xcassets */; };
+		401DEED0235E0F0F006B97CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401DEECE235E0F0F006B97CB /* LaunchScreen.storyboard */; };
+		401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEED7235E11C4006B97CB /* FontMenuTableViewCell.swift */; };
+		401DEEDA235E11C4006B97CB /* FontMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */; };
+		407EE836235E238400E93EEF /* FontDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407EE835235E238400E93EEF /* FontDetailViewController.swift */; };
+		407EE83B235E267B00E93EEF /* NanumSquareOTFLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE837235E267A00E93EEF /* NanumSquareOTFLight.otf */; };
+		407EE83C235E267B00E93EEF /* NanumSquareOTFRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE838235E267A00E93EEF /* NanumSquareOTFRegular.otf */; };
+		407EE83D235E267B00E93EEF /* NanumSquareOTFBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE839235E267A00E93EEF /* NanumSquareOTFBold.otf */; };
+		407EE83E235E267B00E93EEF /* NanumSquareOTFExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE83A235E267A00E93EEF /* NanumSquareOTFExtraBold.otf */; };
+		407EE841235E2C8B00E93EEF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407EE840235E2C8B00E93EEF /* DataManager.swift */; };
+		407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407EE842235E31AF00E93EEF /* extensionClass.swift */; };
+		407EE8DB235E3E5600E93EEF /* NotoSerifCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D4235E3E5600E93EEF /* NotoSerifCJKkr-Bold.otf */; };
+		407EE8DC235E3E5600E93EEF /* NotoSerifCJKkr-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D5235E3E5600E93EEF /* NotoSerifCJKkr-Black.otf */; };
+		407EE8DD235E3E5600E93EEF /* NotoSerifCJKkr-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D6235E3E5600E93EEF /* NotoSerifCJKkr-ExtraLight.otf */; };
+		407EE8DE235E3E5600E93EEF /* NotoSerifCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D7235E3E5600E93EEF /* NotoSerifCJKkr-Medium.otf */; };
+		407EE8DF235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D8235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf */; };
+		407EE8E0235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D9235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf */; };
+		407EE8E1235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */; };
+		407EE8E6235E3E9E00E93EEF /* NanumBarunGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8E2235E3E9E00E93EEF /* NanumBarunGothicLight.otf */; };
+		407EE8E7235E3E9E00E93EEF /* NanumBarunGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8E3235E3E9E00E93EEF /* NanumBarunGothicBold.otf */; };
+		407EE8E8235E3E9E00E93EEF /* NanumBarunGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8E4235E3E9E00E93EEF /* NanumBarunGothic.otf */; };
+		407EE8E9235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8E5235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		401DEEC0235E0F0E006B97CB /* FontViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		401DEEC3235E0F0E006B97CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		401DEEC5235E0F0E006B97CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		401DEEC7235E0F0E006B97CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		401DEECA235E0F0E006B97CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		401DEECC235E0F0F006B97CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		401DEECF235E0F0F006B97CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		401DEED1235E0F0F006B97CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		401DEED7235E11C4006B97CB /* FontMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMenuTableViewCell.swift; sourceTree = "<group>"; };
+		401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontMenuTableViewCell.xib; sourceTree = "<group>"; };
+		407EE835235E238400E93EEF /* FontDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontDetailViewController.swift; sourceTree = "<group>"; };
+		407EE837235E267A00E93EEF /* NanumSquareOTFLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFLight.otf; sourceTree = "<group>"; };
+		407EE838235E267A00E93EEF /* NanumSquareOTFRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFRegular.otf; sourceTree = "<group>"; };
+		407EE839235E267A00E93EEF /* NanumSquareOTFBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFBold.otf; sourceTree = "<group>"; };
+		407EE83A235E267A00E93EEF /* NanumSquareOTFExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareOTFExtraBold.otf; sourceTree = "<group>"; };
+		407EE840235E2C8B00E93EEF /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		407EE842235E31AF00E93EEF /* extensionClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionClass.swift; sourceTree = "<group>"; };
+		407EE8D4235E3E5600E93EEF /* NotoSerifCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		407EE8D5235E3E5600E93EEF /* NotoSerifCJKkr-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Black.otf"; sourceTree = "<group>"; };
+		407EE8D6235E3E5600E93EEF /* NotoSerifCJKkr-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-ExtraLight.otf"; sourceTree = "<group>"; };
+		407EE8D7235E3E5600E93EEF /* NotoSerifCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		407EE8D8235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Light.otf"; sourceTree = "<group>"; };
+		407EE8D9235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-SemiBold.otf"; sourceTree = "<group>"; };
+		407EE8E2235E3E9E00E93EEF /* NanumBarunGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.otf; sourceTree = "<group>"; };
+		407EE8E3235E3E9E00E93EEF /* NanumBarunGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.otf; sourceTree = "<group>"; };
+		407EE8E4235E3E9E00E93EEF /* NanumBarunGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.otf; sourceTree = "<group>"; };
+		407EE8E5235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.otf; sourceTree = "<group>"; };
+		5419CCE6FDD6D137633A47EF /* Pods-FontViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontViewer.release.xcconfig"; path = "Target Support Files/Pods-FontViewer/Pods-FontViewer.release.xcconfig"; sourceTree = "<group>"; };
+		B5FE4AD5B4FBF5D47B5BBEC1 /* Pods_FontViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FontViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4A6B94AE8ED3B327E918D83 /* Pods-FontViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontViewer.debug.xcconfig"; path = "Target Support Files/Pods-FontViewer/Pods-FontViewer.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		401DEEBD235E0F0D006B97CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09F78A53857FB56EBE793627 /* Pods_FontViewer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		401DEEB7235E0F0D006B97CB = {
+			isa = PBXGroup;
+			children = (
+				401DEEC2235E0F0E006B97CB /* FontViewer */,
+				401DEEC1235E0F0E006B97CB /* Products */,
+				FE079B6955AE70CCBB08A658 /* Pods */,
+				4AE911D1799A4365E1C42624 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		401DEEC1235E0F0E006B97CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				401DEEC0235E0F0E006B97CB /* FontViewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		401DEEC2235E0F0E006B97CB /* FontViewer */ = {
+			isa = PBXGroup;
+			children = (
+				407EE83F235E2A1A00E93EEF /* Modal */,
+				401DEEDC235E13EF006B97CB /* ViewController */,
+				401DEEDB235E11C7006B97CB /* View */,
+				401DEEC3235E0F0E006B97CB /* AppDelegate.swift */,
+				401DEEC5235E0F0E006B97CB /* SceneDelegate.swift */,
+				401DEEC9235E0F0E006B97CB /* Main.storyboard */,
+				401DEECC235E0F0F006B97CB /* Assets.xcassets */,
+				401DEECE235E0F0F006B97CB /* LaunchScreen.storyboard */,
+				401DEED1235E0F0F006B97CB /* Info.plist */,
+				407EE839235E267A00E93EEF /* NanumSquareOTFBold.otf */,
+				407EE83A235E267A00E93EEF /* NanumSquareOTFExtraBold.otf */,
+				407EE837235E267A00E93EEF /* NanumSquareOTFLight.otf */,
+				407EE838235E267A00E93EEF /* NanumSquareOTFRegular.otf */,
+				407EE8D5235E3E5600E93EEF /* NotoSerifCJKkr-Black.otf */,
+				407EE8D6235E3E5600E93EEF /* NotoSerifCJKkr-ExtraLight.otf */,
+				407EE8D4235E3E5600E93EEF /* NotoSerifCJKkr-Bold.otf */,
+				407EE8D8235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf */,
+				407EE8D7235E3E5600E93EEF /* NotoSerifCJKkr-Medium.otf */,
+				407EE8D9235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf */,
+				407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */,
+				407EE8E4235E3E9E00E93EEF /* NanumBarunGothic.otf */,
+				407EE8E3235E3E9E00E93EEF /* NanumBarunGothicBold.otf */,
+				407EE8E2235E3E9E00E93EEF /* NanumBarunGothicLight.otf */,
+				407EE8E5235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf */,
+			);
+			path = FontViewer;
+			sourceTree = "<group>";
+		};
+		401DEEDB235E11C7006B97CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				401DEED7235E11C4006B97CB /* FontMenuTableViewCell.swift */,
+				401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		401DEEDC235E13EF006B97CB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				401DEEC7235E0F0E006B97CB /* ViewController.swift */,
+				407EE835235E238400E93EEF /* FontDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		407EE83F235E2A1A00E93EEF /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				407EE840235E2C8B00E93EEF /* DataManager.swift */,
+				407EE842235E31AF00E93EEF /* extensionClass.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		4AE911D1799A4365E1C42624 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5FE4AD5B4FBF5D47B5BBEC1 /* Pods_FontViewer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE079B6955AE70CCBB08A658 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C4A6B94AE8ED3B327E918D83 /* Pods-FontViewer.debug.xcconfig */,
+				5419CCE6FDD6D137633A47EF /* Pods-FontViewer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		401DEEBF235E0F0D006B97CB /* FontViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 401DEED4235E0F0F006B97CB /* Build configuration list for PBXNativeTarget "FontViewer" */;
+			buildPhases = (
+				ED47A910D5AE7FDD413972D0 /* [CP] Check Pods Manifest.lock */,
+				401DEEBC235E0F0D006B97CB /* Sources */,
+				401DEEBD235E0F0D006B97CB /* Frameworks */,
+				401DEEBE235E0F0D006B97CB /* Resources */,
+				FE614423C643D91A7CED9900 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FontViewer;
+			productName = FontViewer;
+			productReference = 401DEEC0235E0F0E006B97CB /* FontViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		401DEEB8235E0F0D006B97CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = tunko;
+				TargetAttributes = {
+					401DEEBF235E0F0D006B97CB = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 401DEEBB235E0F0D006B97CB /* Build configuration list for PBXProject "FontViewer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 401DEEB7235E0F0D006B97CB;
+			productRefGroup = 401DEEC1235E0F0E006B97CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				401DEEBF235E0F0D006B97CB /* FontViewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		401DEEBE235E0F0D006B97CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407EE83E235E267B00E93EEF /* NanumSquareOTFExtraBold.otf in Resources */,
+				407EE8DC235E3E5600E93EEF /* NotoSerifCJKkr-Black.otf in Resources */,
+				407EE8E9235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf in Resources */,
+				401DEED0235E0F0F006B97CB /* LaunchScreen.storyboard in Resources */,
+				407EE8DB235E3E5600E93EEF /* NotoSerifCJKkr-Bold.otf in Resources */,
+				407EE8DE235E3E5600E93EEF /* NotoSerifCJKkr-Medium.otf in Resources */,
+				407EE8DF235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf in Resources */,
+				407EE8DD235E3E5600E93EEF /* NotoSerifCJKkr-ExtraLight.otf in Resources */,
+				407EE8E7235E3E9E00E93EEF /* NanumBarunGothicBold.otf in Resources */,
+				401DEEDA235E11C4006B97CB /* FontMenuTableViewCell.xib in Resources */,
+				407EE8E1235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf in Resources */,
+				407EE8E8235E3E9E00E93EEF /* NanumBarunGothic.otf in Resources */,
+				401DEECD235E0F0F006B97CB /* Assets.xcassets in Resources */,
+				407EE83C235E267B00E93EEF /* NanumSquareOTFRegular.otf in Resources */,
+				407EE8E0235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf in Resources */,
+				407EE83D235E267B00E93EEF /* NanumSquareOTFBold.otf in Resources */,
+				407EE8E6235E3E9E00E93EEF /* NanumBarunGothicLight.otf in Resources */,
+				407EE83B235E267B00E93EEF /* NanumSquareOTFLight.otf in Resources */,
+				401DEECB235E0F0E006B97CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ED47A910D5AE7FDD413972D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FontViewer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE614423C643D91A7CED9900 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FontViewer/Pods-FontViewer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FontViewer/Pods-FontViewer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FontViewer/Pods-FontViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		401DEEBC235E0F0D006B97CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				407EE836235E238400E93EEF /* FontDetailViewController.swift in Sources */,
+				407EE841235E2C8B00E93EEF /* DataManager.swift in Sources */,
+				401DEEC8235E0F0E006B97CB /* ViewController.swift in Sources */,
+				401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */,
+				407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */,
+				401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */,
+				401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		401DEEC9235E0F0E006B97CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				401DEECA235E0F0E006B97CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		401DEECE235E0F0F006B97CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				401DEECF235E0F0F006B97CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		401DEED2235E0F0F006B97CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		401DEED3235E0F0F006B97CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		401DEED5235E0F0F006B97CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4A6B94AE8ED3B327E918D83 /* Pods-FontViewer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SJKHCRL68N;
+				INFOPLIST_FILE = FontViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tunko.fontviewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		401DEED6235E0F0F006B97CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5419CCE6FDD6D137633A47EF /* Pods-FontViewer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SJKHCRL68N;
+				INFOPLIST_FILE = FontViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tunko.fontviewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		401DEEBB235E0F0D006B97CB /* Build configuration list for PBXProject "FontViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				401DEED2235E0F0F006B97CB /* Debug */,
+				401DEED3235E0F0F006B97CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		401DEED4235E0F0F006B97CB /* Build configuration list for PBXNativeTarget "FontViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				401DEED5235E0F0F006B97CB /* Debug */,
+				401DEED6235E0F0F006B97CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 401DEEB8235E0F0D006B97CB /* Project object */;
+}
