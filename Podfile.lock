@@ -1,16 +1,20 @@
 PODS:
+  - FlexColorPicker (1.2.1)
   - MarqueeLabel (4.0.0)
 
 DEPENDENCIES:
+  - FlexColorPicker
   - MarqueeLabel
 
 SPEC REPOS:
   trunk:
+    - FlexColorPicker
     - MarqueeLabel
 
 SPEC CHECKSUMS:
+  FlexColorPicker: 2c6fe41cb33a650d5934fad75ab0e25df4b5af2f
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
 
-PODFILE CHECKSUM: dae655dfa1837f3b81a3b7edb214b1bc93143f38
+PODFILE CHECKSUM: c30366e1ec0331803029c5ce1c20ce6c3359cd4b
 
 COCOAPODS: 1.8.4

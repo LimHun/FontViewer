@@ -25,8 +25,7 @@ class FontDetailViewController: UIViewController {
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
-        
-        textField.delegate = self
+         
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         
         fontScale.addTarget(self, action: #selector(segconChanged(segcon:)), for: UIControl.Event.valueChanged)
@@ -104,32 +103,7 @@ class FontDetailViewController: UIViewController {
     }
 }
 
-extension FontDetailViewController : UITextFieldDelegate
+extension FontDetailViewController
 {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
-//    {
-//        if string.count == 1
-//        {
-//            if string.count + range.length != addStringCount
-//            {
-//                addStringCount = string.count + range.length
-//                editLabel(text: textField.text! + string)
-//            }
-//        }
-//        else if string.count == 0
-//        {
-//            if textField.text!.count - range.length != subStringCount
-//            {
-//                subStringCount = textField.text!.count - range.length
-//                editLabel(text: textField.text!)
-//            }
-//        }
-//
-//        print("textField : \(textField.text!.count)")
-//        print("string : \(string.count)")
-//        print("string.text : \(string)")
-//        print("range.length : \(range.length)")
-//
-//        return true
-//    }
+    
 }

@@ -8,5 +8,6 @@ target 'FontViewer' do
   # Pods for FontViewer
 
 pod 'MarqueeLabel'
+pod 'FlexColorPicker'
 
 end

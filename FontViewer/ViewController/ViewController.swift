@@ -45,6 +45,10 @@ class ViewController: UIViewController
         if let fontDetailViewController = segue.destination as? FontDetailViewController {
             fontDetailViewController.fontName = DataManager.shared.dataFontList[selectIndex]
         }
+        
+        if let fontDetailTableViewController = segue.destination as? FontDetailTableViewController {
+            fontDetailTableViewController.fontName = DataManager.shared.dataFontList[selectIndex]
+        }
     }
 }
 
@@ -59,8 +63,10 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: nibCellName, for: indexPath) as! FontMenuTableViewCell
+        let fontName = DataManager.shared.dataFontList[indexPath.row]
         
-        cell.fontNameLabel.text = DataManager.shared.dataFontList[indexPath.row]
+        cell.fontNameLabel.font = UIFont(name: fontName, size: 24)
+        cell.fontNameLabel.text = fontName
         cell.selectionStyle = .none
         
         return cell
@@ -73,7 +79,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
         
         self.selectIndex = indexPath.row
         
-        self.performSegue(withIdentifier: "fontDetail", sender: self)
+        self.performSegue(withIdentifier: "fontTableDetail", sender: self)
         
     }
+    
+
 }
