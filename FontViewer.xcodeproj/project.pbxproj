@@ -38,6 +38,8 @@
 		407EE8E7235E3E9E00E93EEF /* NanumBarunGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8E3235E3E9E00E93EEF /* NanumBarunGothicBold.otf */; };
 		407EE8E8235E3E9E00E93EEF /* NanumBarunGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8E4235E3E9E00E93EEF /* NanumBarunGothic.otf */; };
 		407EE8E9235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8E5235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf */; };
+		40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4270D23674652004F573F /* AppInfoViewController.swift */; };
+		40D4271023675098004F573F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D4270F23675098004F573F /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		407EE8E3235E3E9E00E93EEF /* NanumBarunGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.otf; sourceTree = "<group>"; };
 		407EE8E4235E3E9E00E93EEF /* NanumBarunGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.otf; sourceTree = "<group>"; };
 		407EE8E5235E3E9E00E93EEF /* NanumBarunGothicUltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.otf; sourceTree = "<group>"; };
+		40D4270D23674652004F573F /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
+		40D4270F23675098004F573F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5419CCE6FDD6D137633A47EF /* Pods-FontViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontViewer.release.xcconfig"; path = "Target Support Files/Pods-FontViewer/Pods-FontViewer.release.xcconfig"; sourceTree = "<group>"; };
 		B5FE4AD5B4FBF5D47B5BBEC1 /* Pods_FontViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FontViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4A6B94AE8ED3B327E918D83 /* Pods-FontViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontViewer.debug.xcconfig"; path = "Target Support Files/Pods-FontViewer/Pods-FontViewer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09F78A53857FB56EBE793627 /* Pods_FontViewer.framework in Frameworks */,
+				40D4271023675098004F573F /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +186,7 @@
 				407EE835235E238400E93EEF /* FontDetailViewController.swift */,
 				4014DB2E2361FB2E00262BB8 /* FontDetailTableViewController.swift */,
 				4014DB3723620FA900262BB8 /* SingleLabelViewController.swift */,
+				40D4270D23674652004F573F /* AppInfoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 		4AE911D1799A4365E1C42624 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40D4270F23675098004F573F /* StoreKit.framework */,
 				B5FE4AD5B4FBF5D47B5BBEC1 /* Pods_FontViewer.framework */,
 			);
 			name = Frameworks;
@@ -349,6 +356,7 @@
 				401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */,
 				407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */,
 				401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */,
+				40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */,
 				4014DB322361FBE300262BB8 /* FontTableViewCell.swift in Sources */,
 				401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */,
 				4014DB2F2361FB2E00262BB8 /* FontDetailTableViewController.swift in Sources */,

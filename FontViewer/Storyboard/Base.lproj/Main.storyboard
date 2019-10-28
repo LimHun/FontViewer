@@ -56,7 +56,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Font Viewer" id="lij-7i-Hzs"/>
+                    <navigationItem key="navigationItem" title="Font Viewer" id="lij-7i-Hzs">
+                        <barButtonItem key="rightBarButtonItem" image="command" catalog="system" id="JLE-dN-EfW">
+                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="xwU-ZR-QhW" kind="modal" id="eA0-ZR-hlY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZMq-dn-0T2" id="dBc-IX-Pff"/>
                         <segue destination="9Zh-8g-U17" kind="show" identifier="fontDetail" id="ONb-uk-wEW"/>
@@ -66,6 +73,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="927.536231884058" y="138.61607142857142"/>
+        </scene>
+        <!--App Info View Controller-->
+        <scene sceneID="g3x-zM-Xxz">
+            <objects>
+                <viewController storyboardIdentifier="AppInfoViewController" id="xwU-ZR-QhW" customClass="AppInfoViewController" customModule="FontViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lab-EX-TED">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tV3-QT-ahm">
+                                <rect key="frame" x="10" y="408" width="394" height="434"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FontViewer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuJ-aP-MLm">
+                                        <rect key="frame" x="48" y="30" width="298" height="76"/>
+                                        <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="60"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producer : Tunko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttt-Gx-Oy2">
+                                        <rect key="frame" x="149" y="136" width="96.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rB4-h6-R2A">
+                                        <rect key="frame" x="40" y="324" width="314" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtl-DW-euu">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="21"/>
+                                                <state key="normal" title="후원하기 ₩1,200">
+                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="vtl-DW-euu" firstAttribute="leading" secondItem="rB4-h6-R2A" secondAttribute="leading" id="dJV-D7-ntO"/>
+                                            <constraint firstItem="vtl-DW-euu" firstAttribute="top" secondItem="rB4-h6-R2A" secondAttribute="top" id="e8N-Bj-RxU"/>
+                                            <constraint firstAttribute="height" constant="50" id="kyB-pp-Tlw"/>
+                                            <constraint firstAttribute="trailing" secondItem="vtl-DW-euu" secondAttribute="trailing" id="p3s-zZ-rJh"/>
+                                            <constraint firstAttribute="bottom" secondItem="vtl-DW-euu" secondAttribute="bottom" id="u88-Uh-rDd"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오직 사용자 여러분의 기부금으로 개발됩니다. 모바일 환경에서 폰트 적용을 미리 대조해볼 수 있습니다. 앱을 유용하게 사용하고 계시다면 모금함을 통해 기부금을 전달해주세요. 감사합니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amr-zn-Vfk">
+                                        <rect key="frame" x="40" y="210" width="314" height="94"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareOTFR" family="NanumSquareOTF" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="fuJ-aP-MLm" firstAttribute="top" secondItem="tV3-QT-ahm" secondAttribute="top" constant="30" id="7JY-hY-fI7"/>
+                                    <constraint firstItem="rB4-h6-R2A" firstAttribute="leading" secondItem="tV3-QT-ahm" secondAttribute="leading" constant="40" id="Oij-5J-rBA"/>
+                                    <constraint firstAttribute="bottom" secondItem="rB4-h6-R2A" secondAttribute="bottom" constant="60" id="Pwu-Ys-Wj1"/>
+                                    <constraint firstItem="fuJ-aP-MLm" firstAttribute="centerX" secondItem="tV3-QT-ahm" secondAttribute="centerX" id="UzB-Oh-Ufv"/>
+                                    <constraint firstItem="rB4-h6-R2A" firstAttribute="top" secondItem="Amr-zn-Vfk" secondAttribute="bottom" constant="20" id="Wg6-oc-30e"/>
+                                    <constraint firstItem="Ttt-Gx-Oy2" firstAttribute="centerX" secondItem="tV3-QT-ahm" secondAttribute="centerX" id="YJE-NZ-i14"/>
+                                    <constraint firstAttribute="trailing" secondItem="rB4-h6-R2A" secondAttribute="trailing" constant="40" id="cvl-4D-2YW"/>
+                                    <constraint firstAttribute="height" constant="434" id="g3p-YE-HA5"/>
+                                    <constraint firstItem="Ttt-Gx-Oy2" firstAttribute="top" secondItem="fuJ-aP-MLm" secondAttribute="bottom" constant="30" id="hUJ-Su-aXG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Amr-zn-Vfk" secondAttribute="trailing" constant="40" id="i4b-qs-42H"/>
+                                    <constraint firstItem="Amr-zn-Vfk" firstAttribute="leading" secondItem="tV3-QT-ahm" secondAttribute="leading" constant="40" id="qUe-9Q-hzN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ObP-gP-zLX" firstAttribute="bottom" secondItem="tV3-QT-ahm" secondAttribute="bottom" constant="-34" id="5lj-Fv-cBt"/>
+                            <constraint firstItem="ObP-gP-zLX" firstAttribute="trailing" secondItem="tV3-QT-ahm" secondAttribute="trailing" constant="10" id="Q8W-hX-3lx"/>
+                            <constraint firstItem="tV3-QT-ahm" firstAttribute="leading" secondItem="ObP-gP-zLX" secondAttribute="leading" constant="10" id="xaC-8B-hnM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ObP-gP-zLX"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonView" destination="rB4-h6-R2A" id="6CW-aA-JwR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uoa-Jl-tU8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927.536231884058" y="819.64285714285711"/>
         </scene>
         <!--Font Detail View Controller-->
         <scene sceneID="e1b-UB-6M3">
@@ -461,7 +561,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="iOx-Uf-8iE"/>
                                         </constraints>
-                                        <state key="normal" title="초기화"/>
+                                        <state key="normal" title="초기화">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="actionInitText:" destination="K2l-r1-28B" eventType="touchUpInside" id="I8X-hK-rie"/>
                                         </connections>
@@ -471,7 +573,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="0cR-Uk-0ae"/>
                                         </constraints>
-                                        <state key="normal" title="Color"/>
+                                        <state key="normal" title="Color">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="actionColor:" destination="K2l-r1-28B" eventType="touchUpInside" id="0No-ig-6wi"/>
                                             <action selector="actionColor:" destination="k7P-f5-Jwo" eventType="touchUpInside" id="ESs-Mx-Rir"/>
@@ -503,7 +607,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Hm-me-c8U"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6Lo-Sw-i7g">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="6Lo-Sw-i7g">
                         <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="oFj-fV-uSk">
                             <stepper key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="QDi-mh-1hz">
                                 <rect key="frame" x="300" y="6" width="94" height="32"/>
@@ -523,7 +627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbc-EH-ERg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="817"/>
+            <point key="canvasLocation" x="1745" y="139"/>
         </scene>
         <!--Single Label View Controller-->
         <scene sceneID="o9e-m0-1S3">
@@ -552,12 +656,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow3-61-jmy">
                                 <rect key="frame" x="264" y="835.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbi-0X-phd">
                                 <rect key="frame" x="113" y="831" width="37" height="30"/>
-                                <state key="normal" title="Color"/>
+                                <state key="normal" title="Color">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="actionColor:" destination="k7P-f5-Jwo" eventType="touchUpInside" id="9Lq-ho-ErD"/>
                                 </connections>
@@ -575,7 +680,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="ClQ-L1-VEo"/>
                                         </constraints>
-                                        <state key="normal" title="초기화"/>
+                                        <state key="normal" title="초기화">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="actionInit:" destination="k7P-f5-Jwo" eventType="touchUpInside" id="hjf-Sf-K0b"/>
                                         </connections>
@@ -625,11 +732,13 @@
                         </segmentedControl>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="camera" id="C7w-uP-ENW">
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
                                     <action selector="actionGetPhoto:" destination="k7P-f5-Jwo" id="5hL-mF-rhs"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="stop" id="RA3-TZ-n2N">
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
                                     <action selector="actionPhotoClear:" destination="k7P-f5-Jwo" id="Gl1-xV-5Fb"/>
                                 </connections>
@@ -667,4 +776,8 @@
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="command" catalog="system" width="64" height="56"/>
+    </resources>
+    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>
