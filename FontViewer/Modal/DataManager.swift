@@ -12,6 +12,8 @@ class DataManager
 {
     static let shared = DataManager()
     
+    var commitCheck = false
+    
     var dataFontList : [String] = [
         "NanumSquareOTF",
         "NanumSquareOTFB",
