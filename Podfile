@@ -9,5 +9,6 @@ target 'FontViewer' do
 
 pod 'MarqueeLabel'
 pod 'FlexColorPicker'
+pod 'SwiftyJSON', '~> 4.0'
 
 end

@@ -19,4 +19,8 @@ class AppInfoViewController: UIViewController {
         buttonView.layer.borderColor = UIColor.label.cgColor
         
     }
+    
+    @IBAction func actionDonation(_ sender: Any) {
+        FontViewerProducts.store.restorePurchases()
+    }
 }

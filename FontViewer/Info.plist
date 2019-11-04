@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>엘범쓰자</string>
-	<key>NSCameraUsageDescription</key>
-	<string>카메라쓰자</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -19,13 +15,30 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>카메라쓰자</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>엘범쓰자</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>나눔손글씨 할아버지의나눔.ttf</string>
+		<string>나눔손글씨 외할머니글씨.ttf</string>
+		<string>나눔손글씨 암스테르담.ttf</string>
+		<string>나눔손글씨 아빠글씨.ttf</string>
+		<string>나눔손글씨 세아체.ttf</string>
+		<string>나눔손글씨 성실체.ttf</string>
+		<string>나눔손글씨 무궁화.ttf</string>
+		<string>나눔손글씨 딸에게 엄마가.ttf</string>
+		<string>나눔손글씨 다행체.ttf</string>
+		<string>나눔손글씨 강인한 위로.ttf</string>
+		<string>나눔손글씨 강부장님체.ttf</string>
+		<string>나눔손글씨 갈맷글.ttf</string>
+		<string>나눔손글씨 가람연꽃.ttf</string>
 		<string>NanumSquareOTFRegular.otf</string>
 		<string>NanumSquareOTFLight.otf</string>
 		<string>NanumSquareOTFBold.otf</string>

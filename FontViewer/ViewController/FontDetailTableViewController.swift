@@ -14,8 +14,8 @@ class FontDetailTableViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var tableView: UITableView!
-    let initFontSize : CGFloat = 4
-    let initMessage : String = "뭐가좋을지몰라서다넣어봤어^ㅡ^"
+    let initFontSize : CGFloat = 10
+    let initMessage : String = "Hello. 안녕하세요^ㅡ^"
     let nibCellName : String = "FontTableViewCell"
     
     var fontSizeGap : Int = 1

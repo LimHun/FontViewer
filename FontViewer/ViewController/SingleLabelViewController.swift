@@ -35,6 +35,8 @@ class SingleLabelViewController: UIViewController {
         case right
     }
     
+    var photoColor : [UIColor] = []
+    
     var cMode : curserMode = .left
     
     override func viewDidLoad() {
@@ -96,6 +98,7 @@ class SingleLabelViewController: UIViewController {
     
     @IBAction func actionPhotoClear(_ sender: Any) {
         backGround.image = nil
+        //photoColor.removeAll()
     }
     
     @IBAction func actionSegmented(_ sender: Any) {
@@ -154,13 +157,22 @@ class SingleLabelViewController: UIViewController {
             return location
         }
     }
+        
+    /*
     
+     heading title2
+     =
+    */
+    var labelGap : CGPoint = CGPoint()
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     
         if let touch = touches.first {
             print("\(touch)")
             let touchLocation = touch.location(in: self.view)
-            selectLabel.center = getTouchPos(touchLocation)
+            
+            labelGap = CGPoint(x: selectLabel.center.x - touchLocation.x, y: selectLabel.center.y - touchLocation.y)
+            
+            //selectLabel.center = getTouchPos(touchLocation)
         }
         super.touchesBegan(touches, with: event)
         
@@ -170,7 +182,9 @@ class SingleLabelViewController: UIViewController {
        if let touch = touches.first{
             print("\(touch)")
             let touchLocation = touch.location(in: self.view)
-            selectLabel.center = getTouchPos(touchLocation)
+            
+            selectLabel.center = CGPoint(x: touchLocation.x + labelGap.x, y: touchLocation.y + labelGap.y)
+
         }
         super.touchesMoved(touches, with: event)
     }
@@ -178,11 +192,38 @@ class SingleLabelViewController: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first{
             print("\(touch)")
-            let touchLocation = touch.location(in: self.view)
-            selectLabel.center = getTouchPos(touchLocation)
         }
         super.touchesEnded(touches, with: event)
     }
+    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//        if let touch = touches.first {
+//            print("\(touch)")
+//            let touchLocation = touch.location(in: self.view)
+//            selectLabel.center = getTouchPos(touchLocation)
+//        }
+//        super.touchesBegan(touches, with: event)
+//
+//    }
+//
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//       if let touch = touches.first{
+//            print("\(touch)")
+//            let touchLocation = touch.location(in: self.view)
+//            selectLabel.center = getTouchPos(touchLocation)
+//        }
+//        super.touchesMoved(touches, with: event)
+//    }
+//
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first{
+//            print("\(touch)")
+//            let touchLocation = touch.location(in: self.view)
+//            selectLabel.center = getTouchPos(touchLocation)
+//        }
+//        super.touchesEnded(touches, with: event)
+//    }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesCancelled")
@@ -193,10 +234,7 @@ class SingleLabelViewController: UIViewController {
         colorPickerController.delegate = self
         navigationController?.pushViewController(colorPickerController, animated: true)
     }
-    
 }
-
-
 
 extension SingleLabelViewController: ColorPickerDelegate {
 
@@ -229,5 +267,5 @@ extension SingleLabelViewController : UIImagePickerControllerDelegate, UINavigat
             backGround.image = image
         }
         self.picker.dismiss(animated: true, completion: nil)
-    }
+    } 
 }

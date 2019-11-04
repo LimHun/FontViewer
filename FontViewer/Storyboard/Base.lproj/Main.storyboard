@@ -20,8 +20,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="폰트 이름을 검색해주세요." translatesAutoresizingMaskIntoConstraints="NO" id="g9a-mk-Xeb">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZMq-dn-0T2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fontCell" rowHeight="85" id="zlE-dV-S2p">
@@ -32,8 +36,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrL-UB-QgM">
-                                                    <rect key="frame" x="186" y="32" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="186" y="32.5" width="42" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -46,13 +50,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSk-dH-G0p">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KDn-we-ydj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZMq-dn-0T2" secondAttribute="trailing" id="22O-bU-T5B"/>
+                            <constraint firstItem="g9a-mk-Xeb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Pb-iX-gft"/>
+                            <constraint firstItem="CSk-dH-G0p" firstAttribute="top" secondItem="ZMq-dn-0T2" secondAttribute="bottom" id="4Ng-5B-8j4"/>
+                            <constraint firstItem="CSk-dH-G0p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6hJ-jU-lHf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CSk-dH-G0p" secondAttribute="trailing" id="FeL-Bo-EEy"/>
+                            <constraint firstItem="g9a-mk-Xeb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jvt-2K-j6D"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CSk-dH-G0p" secondAttribute="bottom" id="KtU-8X-Xqz"/>
                             <constraint firstItem="ZMq-dn-0T2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VAd-17-wZe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZMq-dn-0T2" secondAttribute="bottom" id="gJh-bd-7aE"/>
-                            <constraint firstItem="ZMq-dn-0T2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zyc-GK-mA6"/>
+                            <constraint firstItem="g9a-mk-Xeb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="em3-DD-6JM"/>
+                            <constraint firstItem="ZMq-dn-0T2" firstAttribute="top" secondItem="g9a-mk-Xeb" secondAttribute="bottom" id="ucQ-nI-rhs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -65,6 +82,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="inputViewBottomAnchor" destination="KtU-8X-Xqz" id="Vh6-Xm-tId"/>
+                        <outlet property="searchBar" destination="g9a-mk-Xeb" id="0Hh-41-kfu"/>
                         <outlet property="tableView" destination="ZMq-dn-0T2" id="dBc-IX-Pff"/>
                         <segue destination="9Zh-8g-U17" kind="show" identifier="fontDetail" id="ONb-uk-wEW"/>
                         <segue destination="K2l-r1-28B" kind="show" identifier="fontTableDetail" id="DXG-Y6-QKs"/>
@@ -106,6 +125,9 @@
                                                 <state key="normal" title="후원하기 ₩1,200">
                                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="actionDonation:" destination="xwU-ZR-QhW" eventType="touchUpInside" id="YiX-Kk-2mD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -637,9 +659,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-S6-VDA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-S6-VDA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdO-01-14s">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPR-dd-9gO">
                                 <rect key="frame" x="186" y="438" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -671,17 +698,19 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="입력해주세요 :)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hh7-qx-3PL">
-                                        <rect key="frame" x="10" y="16.5" width="338" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="10" y="14" width="338" height="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfd-r4-glX">
-                                        <rect key="frame" x="358" y="10" width="46" height="30"/>
+                                        <rect key="frame" x="358" y="8.5" width="46" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="ClQ-L1-VEo"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="초기화">
-                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="actionInit:" destination="k7P-f5-Jwo" eventType="touchUpInside" id="hjf-Sf-K0b"/>
@@ -718,18 +747,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="mTv-nC-BGd">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="U5N-6u-y41">
-                            <rect key="frame" x="119" y="5.5" width="176" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="left"/>
-                                <segment title="center"/>
-                                <segment title="right"/>
-                            </segments>
-                            <connections>
-                                <action selector="actionSegmented:" destination="k7P-f5-Jwo" eventType="valueChanged" id="DkZ-8R-fv1"/>
-                            </connections>
-                        </segmentedControl>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="camera" id="C7w-uP-ENW">
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -760,6 +777,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7my-nm-KkL">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0R9-E6-8A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rqc-Fe-rUR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fRF-Gl-0cR">
@@ -771,7 +789,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xSw-kY-a8n"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0R9-E6-8A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>

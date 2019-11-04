@@ -14,10 +14,8 @@ class FontDetailViewController: UIViewController {
     @IBOutlet var fontLabels : [UILabel] = []
     @IBOutlet weak var fontScale: UISegmentedControl!
     
-    var fontName : String = ""
-    
+    var fontName : String = "" 
     var fontScaleValue : Int = 4
-    
     var addStringCount : Int = 0
     var subStringCount : Int = 0
       
