@@ -10,5 +10,6 @@ target 'FontViewer' do
 pod 'MarqueeLabel'
 pod 'FlexColorPicker'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'KMPlaceholderTextView', '~> 1.4.0' 
 
 end

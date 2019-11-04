@@ -1,24 +1,28 @@
 PODS:
   - FlexColorPicker (1.2.1)
+  - KMPlaceholderTextView (1.4.0)
   - MarqueeLabel (4.0.0)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - FlexColorPicker
+  - KMPlaceholderTextView (~> 1.4.0)
   - MarqueeLabel
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - FlexColorPicker
+    - KMPlaceholderTextView
     - MarqueeLabel
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   FlexColorPicker: 2c6fe41cb33a650d5934fad75ab0e25df4b5af2f
+  KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 3b6d60015bc24e27d3a4ec2880a971ada8d3cf42
+PODFILE CHECKSUM: 8dac334093620036a97db7124ab0daa3ccd829b7
 
 COCOAPODS: 1.8.4

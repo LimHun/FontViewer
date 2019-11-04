@@ -14,6 +14,7 @@ class FontDetailTableViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var editTextView: UITextView!
     let initFontSize : CGFloat = 10
     let initMessage : String = "Hello. 안녕하세요^ㅡ^"
     let nibCellName : String = "FontTableViewCell"
@@ -25,13 +26,19 @@ class FontDetailTableViewController: UIViewController {
     var selectFontSize : CGFloat = 12
     var pickedColor : UIColor = .label
     
+    @IBOutlet var editingViewHeight: NSLayoutConstraint!
+    @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
+        setkeyboard()
 
         // 뒤로가기 버튼 문구 수정
         self.navigationController?.navigationBar.topItem?.title = ""
+        
+        editTextView.delegate = self
  
         let cellNib = UINib.init(nibName: nibCellName, bundle: Bundle.main)
         tableView.register(cellNib, forCellReuseIdentifier: nibCellName)
@@ -46,7 +53,7 @@ class FontDetailTableViewController: UIViewController {
         stepper.minimumValue = 1
         
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        
+          
         printText = initMessage
     }
     
@@ -104,6 +111,45 @@ class FontDetailTableViewController: UIViewController {
             singleLabelViewController.foutColor = self.pickedColor
         }
     }
+    
+    func setkeyboard()
+    {
+        self.hideKeyboardWhenTappedAround()
+        
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(keyboardWillShow(_:)), name:UIResponder.keyboardWillShowNotification,
+                                             object: nil)
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(keyboardWillHide(_:)), name:UIResponder.keyboardWillHideNotification,
+                                             object: nil)
+    }
+    
+    // Keyboard hide
+    @objc func keyboardWillHide(_ notification: Notification)
+    {
+        handleKeyboardIssue(notification: notification, isAppearing: false)
+    }
+    
+    // Keyboard show
+    @objc func keyboardWillShow(_ notification: Notification)
+    {
+        handleKeyboardIssue(notification: notification, isAppearing: true)
+    }
+    
+    fileprivate func handleKeyboardIssue(notification: Notification, isAppearing: Bool)
+    {
+        guard let userInfo = notification.userInfo as? [String:Any] else {return}
+        guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        guard let keyboardShowAnimateDuartion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {return}
+        let keyboardHeight = keyboardFrame.cgRectValue.height
+        
+        let heightConstant = isAppearing ? keyboardHeight : 0
+        inputViewBottomAnchor.constant = heightConstant - 35
+        UIView.animate(withDuration: keyboardShowAnimateDuartion.doubleValue)
+        {
+            self.view.layoutIfNeeded()
+        }
+    }
 }
  
 extension FontDetailTableViewController: ColorPickerDelegate {
@@ -145,5 +191,71 @@ extension FontDetailTableViewController : UITableViewDelegate, UITableViewDataSo
         selectFontSize = CGFloat(Int(initFontSize) + fontSizeGap * indexPath.row)
         self.performSegue(withIdentifier: "singleText", sender: self)
         
+    }
+}
+
+extension FontDetailTableViewController : UITextViewDelegate
+{
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        if textView.text.count > 249
+        {
+            return false
+        }
+        
+        textViewDidChange(textView)
+        return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView)
+    {
+        setInputBoxButton(textView)
+        
+        let fixedWidth = textView.frame.size.width
+        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        var newFrame = textView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        
+        print("newSize.height : \(newSize.height)")
+        
+        var height = newSize.height
+        if height < 40 {
+            height = 40
+        }
+        editingViewHeight.constant = height
+        
+//        if height < 37
+//        {
+//            tableViewHeight.constant = initScrollHeight!
+//            inputBoxHeight.constant = initBoxHeight!
+//            return
+//        }
+//
+//        if height >= 100
+//        {
+//            height = 100
+//        }
+//
+//        tableViewHeight.constant = tableViewHeight.constant - height
+//        inputBoxHeight.constant = height
+//
+//        let offset = commentTextView.contentOffset.y
+//        commentTextView.contentOffset = CGPoint(x: 0,y: offset)
+    }
+    
+    func setInputBoxButton(_ textView: UITextView)
+    {
+//        let string = textView.text.trim()
+//        if string.count == 0
+//        {
+//            commentLabel.backgroundColor = Color.inputButtonOff
+//            commentLabel.textColor = Color.inputButtonOffText
+//        }
+//        else
+//        {
+//            commentLabel.backgroundColor = Color.inputButtonOn
+//            commentLabel.textColor = UIColor.white
+//        }
     }
 }

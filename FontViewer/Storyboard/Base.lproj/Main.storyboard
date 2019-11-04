@@ -567,7 +567,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IVX-8q-OBL">
-                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <rect key="frame" x="0.0" y="138" width="414" height="684"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhH-mY-R0v">
@@ -616,16 +616,66 @@
                                     <constraint firstItem="X6U-4O-786" firstAttribute="leading" secondItem="lhb-Xb-tpa" secondAttribute="trailing" constant="10" id="nfQ-O6-XOb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D00-od-1bc">
+                                <rect key="frame" x="214" y="772" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EyZ-Sn-oZ6"/>
+                                    <constraint firstAttribute="width" constant="200" id="bb8-0j-pRJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2n-sD-Xxv" userLabel="EditingView">
+                                <rect key="frame" x="0.0" y="822" width="414" height="40"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rGn-8r-Ulx" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
+                                        <rect key="frame" x="10" y="5" width="354" height="35"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="입력해주세요 :)"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnT-Ea-XHv">
+                                        <rect key="frame" x="364" y="0.0" width="50" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="k5L-kT-uiq"/>
+                                            <constraint firstAttribute="width" constant="50" id="x9l-O7-mFB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="초기화">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mnT-Ea-XHv" secondAttribute="bottom" id="21R-Bv-iRn"/>
+                                    <constraint firstItem="rGn-8r-Ulx" firstAttribute="leading" secondItem="d2n-sD-Xxv" secondAttribute="leading" constant="10" id="DzY-Ld-bsS"/>
+                                    <constraint firstAttribute="height" constant="40" id="UDA-dG-Cgz"/>
+                                    <constraint firstItem="rGn-8r-Ulx" firstAttribute="top" secondItem="d2n-sD-Xxv" secondAttribute="top" constant="5" id="aaH-sr-sLC"/>
+                                    <constraint firstAttribute="bottom" secondItem="rGn-8r-Ulx" secondAttribute="bottom" id="bl2-a4-uJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="mnT-Ea-XHv" secondAttribute="trailing" id="vn1-wn-ZIk"/>
+                                    <constraint firstItem="mnT-Ea-XHv" firstAttribute="leading" secondItem="rGn-8r-Ulx" secondAttribute="trailing" id="xLR-Gd-frh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="IVX-8q-OBL" firstAttribute="leading" secondItem="8Hm-me-c8U" secondAttribute="leading" id="2sH-7f-rOU"/>
+                            <constraint firstItem="d2n-sD-Xxv" firstAttribute="top" secondItem="D00-od-1bc" secondAttribute="bottom" id="6YJ-iJ-GOJ"/>
+                            <constraint firstItem="d2n-sD-Xxv" firstAttribute="leading" secondItem="8Hm-me-c8U" secondAttribute="leading" id="DzL-iL-xtk"/>
                             <constraint firstItem="fhH-mY-R0v" firstAttribute="leading" secondItem="8Hm-me-c8U" secondAttribute="leading" id="Llb-5Z-GTb"/>
-                            <constraint firstItem="8Hm-me-c8U" firstAttribute="bottom" secondItem="IVX-8q-OBL" secondAttribute="bottom" id="UMH-et-1oF"/>
+                            <constraint firstItem="8Hm-me-c8U" firstAttribute="bottom" secondItem="d2n-sD-Xxv" secondAttribute="bottom" id="M4a-VR-q6d"/>
                             <constraint firstItem="fhH-mY-R0v" firstAttribute="top" secondItem="8Hm-me-c8U" secondAttribute="top" id="ZSY-48-fI7"/>
+                            <constraint firstItem="d2n-sD-Xxv" firstAttribute="top" secondItem="IVX-8q-OBL" secondAttribute="bottom" id="ckK-Qk-Jst"/>
                             <constraint firstItem="8Hm-me-c8U" firstAttribute="trailing" secondItem="IVX-8q-OBL" secondAttribute="trailing" id="i4x-tM-cBj"/>
                             <constraint firstItem="8Hm-me-c8U" firstAttribute="trailing" secondItem="fhH-mY-R0v" secondAttribute="trailing" id="kP9-3L-dzn"/>
+                            <constraint firstItem="8Hm-me-c8U" firstAttribute="trailing" secondItem="D00-od-1bc" secondAttribute="trailing" id="ohX-fn-lh0"/>
                             <constraint firstItem="IVX-8q-OBL" firstAttribute="top" secondItem="fhH-mY-R0v" secondAttribute="bottom" id="sdb-Je-sP5"/>
+                            <constraint firstItem="8Hm-me-c8U" firstAttribute="trailing" secondItem="d2n-sD-Xxv" secondAttribute="trailing" id="vYT-J6-zsc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Hm-me-c8U"/>
                     </view>
@@ -641,6 +691,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editTextView" destination="rGn-8r-Ulx" id="e2i-DU-5ye"/>
+                        <outlet property="editingViewHeight" destination="UDA-dG-Cgz" id="c7p-8o-jTh"/>
+                        <outlet property="inputViewBottomAnchor" destination="M4a-VR-q6d" id="txr-5e-wKS"/>
                         <outlet property="stepper" destination="QDi-mh-1hz" id="6uU-ik-HPa"/>
                         <outlet property="tableView" destination="IVX-8q-OBL" id="DDV-UW-L3H"/>
                         <outlet property="textField" destination="lhb-Xb-tpa" id="Lu3-iI-PIX"/>
@@ -649,7 +702,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbc-EH-ERg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1745" y="139"/>
+            <point key="canvasLocation" x="1744.9275362318842" y="138.61607142857142"/>
         </scene>
         <!--Single Label View Controller-->
         <scene sceneID="o9e-m0-1S3">
