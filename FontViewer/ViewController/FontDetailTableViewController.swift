@@ -17,7 +17,6 @@ class FontDetailTableViewController: UIViewController {
     @IBOutlet var editTextView: UITextView!
     @IBOutlet var editingViewHeight: NSLayoutConstraint!
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
-    @IBOutlet var editText: KMPlaceholderTextView!
     @IBOutlet var buttons : [UIButton] = []
     
     let initFontSize : CGFloat = 10
@@ -89,7 +88,7 @@ class FontDetailTableViewController: UIViewController {
     }
     
     @IBAction func actionInitText(_ sender: Any) {
-        editText.text = ""
+        editTextView.text = ""
         printText = initMessage
         tableView.reloadData()
     }

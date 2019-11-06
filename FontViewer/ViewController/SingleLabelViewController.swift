@@ -15,8 +15,11 @@ class SingleLabelViewController: UIViewController {
     @IBOutlet weak var backGround: UIImageView!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var naviLabelSize: UILabel!
-    @IBOutlet weak var textField: UITextField!
-   
+    @IBOutlet var initButton: UIButton!
+    @IBOutlet var editTextView: UITextView!
+    @IBOutlet var editingViewHeight: NSLayoutConstraint!
+    @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
+    
     let initMessage : String = "뭐가좋을지몰라서다넣어봤어^ㅡ^"
     var fontName : String = ""
     var fontSize : CGFloat = 0
@@ -58,6 +61,7 @@ class SingleLabelViewController: UIViewController {
         selectLabel.layoutIfNeeded()
         
         picker.delegate = self
+        editTextView.delegate = self
         
         stepper.wraps = true
         stepper.autorepeat = true
@@ -69,8 +73,52 @@ class SingleLabelViewController: UIViewController {
         let y : Int = Int(x)
         let z : String = String(y)
         naviLabelSize.text = z
+         
+        initButton.layer.masksToBounds = true
+        initButton.layer.cornerRadius = 5
         
-        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        setkeyboard()
+    }
+    
+    func setkeyboard()
+    {
+        self.hideKeyboardWhenTappedAround()
+        
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(keyboardWillShow(_:)), name:UIResponder.keyboardWillShowNotification,
+                                             object: nil)
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(keyboardWillHide(_:)), name:UIResponder.keyboardWillHideNotification,
+                                             object: nil)
+    }
+    
+    // Keyboard hide
+    @objc func keyboardWillHide(_ notification: Notification)
+    {
+        handleKeyboardIssue(notification: notification, isAppearing: false)
+        
+        inputViewBottomAnchor.constant = 0
+    }
+    
+    // Keyboard show
+    @objc func keyboardWillShow(_ notification: Notification)
+    {
+        handleKeyboardIssue(notification: notification, isAppearing: true)
+    }
+    
+    fileprivate func handleKeyboardIssue(notification: Notification, isAppearing: Bool)
+    {
+        guard let userInfo = notification.userInfo as? [String:Any] else {return}
+        guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+        guard let keyboardShowAnimateDuartion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {return}
+        let keyboardHeight = keyboardFrame.cgRectValue.height
+        
+        let heightConstant = isAppearing ? keyboardHeight : 0
+        inputViewBottomAnchor.constant = heightConstant - 35
+        UIView.animate(withDuration: keyboardShowAnimateDuartion.doubleValue)
+        {
+            self.view.layoutIfNeeded()
+        }
     }
     
     @objc func textFieldDidChange(_ textField: UITextField)
@@ -79,6 +127,7 @@ class SingleLabelViewController: UIViewController {
         selectLabel.sizeToFit()
         selectLabel.layoutIfNeeded()
     }
+    
     
     @IBAction func actionGetPhoto(_ sender: Any) {
         
@@ -101,24 +150,6 @@ class SingleLabelViewController: UIViewController {
         //photoColor.removeAll()
     }
     
-    @IBAction func actionSegmented(_ sender: Any) {
-        if let segcon = sender as? UISegmentedControl {
-            switch segcon.selectedSegmentIndex {
-            case 0:
-                cMode = .left
-                break
-            case 1:
-                cMode = .center
-                break
-            case 2:
-                cMode = .right
-                break
-            default:
-                break
-            }
-        }
-    }
-    
     @IBAction func actionStepperValueChanged(_ sender: UIStepper) {
         print("sender\(sender.value)")
         let size = CGFloat(sender.value)
@@ -138,8 +169,7 @@ class SingleLabelViewController: UIViewController {
     @IBAction func actionInit(_ sender: Any) {
         selectLabel.text = initMessage
         selectLabel.sizeToFit()
-        selectLabel.layoutIfNeeded()
-        textField.text = ""
+        selectLabel.layoutIfNeeded() 
     }
     
     func getTouchPos(_ location : CGPoint) -> CGPoint
@@ -157,12 +187,7 @@ class SingleLabelViewController: UIViewController {
             return location
         }
     }
-        
-    /*
-    
-     heading title2
-     =
-    */
+         
     var labelGap : CGPoint = CGPoint()
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     
@@ -194,36 +219,7 @@ class SingleLabelViewController: UIViewController {
             print("\(touch)")
         }
         super.touchesEnded(touches, with: event)
-    }
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//        if let touch = touches.first {
-//            print("\(touch)")
-//            let touchLocation = touch.location(in: self.view)
-//            selectLabel.center = getTouchPos(touchLocation)
-//        }
-//        super.touchesBegan(touches, with: event)
-//
-//    }
-//
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//       if let touch = touches.first{
-//            print("\(touch)")
-//            let touchLocation = touch.location(in: self.view)
-//            selectLabel.center = getTouchPos(touchLocation)
-//        }
-//        super.touchesMoved(touches, with: event)
-//    }
-//
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch = touches.first{
-//            print("\(touch)")
-//            let touchLocation = touch.location(in: self.view)
-//            selectLabel.center = getTouchPos(touchLocation)
-//        }
-//        super.touchesEnded(touches, with: event)
-//    }
+    } 
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touchesCancelled")
@@ -269,3 +265,45 @@ extension SingleLabelViewController : UIImagePickerControllerDelegate, UINavigat
         self.picker.dismiss(animated: true, completion: nil)
     } 
 }
+
+extension SingleLabelViewController : UITextViewDelegate
+{
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        if textView.text.count > 249
+        {
+            return false
+        }
+        
+        textViewDidChange(textView)
+        return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView)
+    {
+        setInputBoxButton(textView)
+        
+        let fixedWidth = textView.frame.size.width
+        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        var newFrame = textView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        
+        var height = newSize.height
+        if height < 40 {
+            height = 40
+        }
+        
+        editingViewHeight.constant = height
+        
+        self.selectLabel.text = textView.text
+        self.selectLabel.frame.size = newSize
+        
+    }
+    
+    func setInputBoxButton(_ textView: UITextView)
+    {
+        
+    }
+}
+
