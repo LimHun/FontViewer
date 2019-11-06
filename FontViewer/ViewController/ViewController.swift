@@ -42,16 +42,12 @@ class ViewController: UIViewController
         searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.sizeToFit()
-        searchBar.placeholder = ""
+        searchBar.placeholder = "입력해주세요 :)"
         self.navigationController?.navigationBar.topItem?.titleView = searchBar
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let fontDetailViewController = segue.destination as? FontDetailViewController {
-            fontDetailViewController.fontName = filteredModels[selectIndex]
-        }
-        
+          
         if let fontDetailTableViewController = segue.destination as? FontDetailTableViewController {
             fontDetailTableViewController.fontName = filteredModels[selectIndex]
         }

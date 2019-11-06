@@ -8,13 +8,18 @@
 
 import UIKit
 import FlexColorPicker
+import KMPlaceholderTextView
 
 class FontDetailTableViewController: UIViewController {
 
     @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var editTextView: UITextView!
+    @IBOutlet var editingViewHeight: NSLayoutConstraint!
+    @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
+    @IBOutlet var editText: KMPlaceholderTextView!
+    @IBOutlet var buttons : [UIButton] = []
+    
     let initFontSize : CGFloat = 10
     let initMessage : String = "Hello. 안녕하세요^ㅡ^"
     let nibCellName : String = "FontTableViewCell"
@@ -25,9 +30,6 @@ class FontDetailTableViewController: UIViewController {
     var printText : String = ""
     var selectFontSize : CGFloat = 12
     var pickedColor : UIColor = .label
-    
-    @IBOutlet var editingViewHeight: NSLayoutConstraint!
-    @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +53,12 @@ class FontDetailTableViewController: UIViewController {
         stepper.autorepeat = true
         stepper.maximumValue = 6
         stepper.minimumValue = 1
-        
-        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-          
         printText = initMessage
+        
+        for btn in buttons {
+            btn.layer.masksToBounds = true
+            btn.layer.cornerRadius = 5
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,7 +89,7 @@ class FontDetailTableViewController: UIViewController {
     }
     
     @IBAction func actionInitText(_ sender: Any) {
-        textField.text = ""
+        editText.text = ""
         printText = initMessage
         tableView.reloadData()
     }
@@ -128,6 +132,8 @@ class FontDetailTableViewController: UIViewController {
     @objc func keyboardWillHide(_ notification: Notification)
     {
         handleKeyboardIssue(notification: notification, isAppearing: false)
+        
+        inputViewBottomAnchor.constant = 0
     }
     
     // Keyboard show
@@ -215,9 +221,7 @@ extension FontDetailTableViewController : UITextViewDelegate
         textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         var newFrame = textView.frame
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        
-        print("newSize.height : \(newSize.height)")
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height) 
         
         var height = newSize.height
         if height < 40 {
@@ -225,37 +229,12 @@ extension FontDetailTableViewController : UITextViewDelegate
         }
         editingViewHeight.constant = height
         
-//        if height < 37
-//        {
-//            tableViewHeight.constant = initScrollHeight!
-//            inputBoxHeight.constant = initBoxHeight!
-//            return
-//        }
-//
-//        if height >= 100
-//        {
-//            height = 100
-//        }
-//
-//        tableViewHeight.constant = tableViewHeight.constant - height
-//        inputBoxHeight.constant = height
-//
-//        let offset = commentTextView.contentOffset.y
-//        commentTextView.contentOffset = CGPoint(x: 0,y: offset)
+        self.printText = textView.text
+        self.tableView.reloadData()
     }
     
     func setInputBoxButton(_ textView: UITextView)
     {
-//        let string = textView.text.trim()
-//        if string.count == 0
-//        {
-//            commentLabel.backgroundColor = Color.inputButtonOff
-//            commentLabel.textColor = Color.inputButtonOffText
-//        }
-//        else
-//        {
-//            commentLabel.backgroundColor = Color.inputButtonOn
-//            commentLabel.textColor = UIColor.white
-//        }
+        
     }
 }
