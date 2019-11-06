@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rqc-Fe-rUR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rqc-Fe-rUR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="폰트 이름을 검색해주세요." translatesAutoresizingMaskIntoConstraints="NO" id="g9a-mk-Xeb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZMq-dn-0T2">
-                                <rect key="frame" x="0.0" y="144" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fontCell" rowHeight="85" id="zlE-dV-S2p">
@@ -52,7 +48,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSk-dH-G0p">
                                 <rect key="frame" x="0.0" y="812" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KDn-we-ydj"/>
                                 </constraints>
@@ -61,15 +57,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZMq-dn-0T2" secondAttribute="trailing" id="22O-bU-T5B"/>
-                            <constraint firstItem="g9a-mk-Xeb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Pb-iX-gft"/>
                             <constraint firstItem="CSk-dH-G0p" firstAttribute="top" secondItem="ZMq-dn-0T2" secondAttribute="bottom" id="4Ng-5B-8j4"/>
                             <constraint firstItem="CSk-dH-G0p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6hJ-jU-lHf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CSk-dH-G0p" secondAttribute="trailing" id="FeL-Bo-EEy"/>
-                            <constraint firstItem="g9a-mk-Xeb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jvt-2K-j6D"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CSk-dH-G0p" secondAttribute="bottom" id="KtU-8X-Xqz"/>
                             <constraint firstItem="ZMq-dn-0T2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VAd-17-wZe"/>
-                            <constraint firstItem="g9a-mk-Xeb" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="em3-DD-6JM"/>
-                            <constraint firstItem="ZMq-dn-0T2" firstAttribute="top" secondItem="g9a-mk-Xeb" secondAttribute="bottom" id="ucQ-nI-rhs"/>
+                            <constraint firstItem="ZMq-dn-0T2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bSP-qj-vcp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -83,7 +76,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="inputViewBottomAnchor" destination="KtU-8X-Xqz" id="Vh6-Xm-tId"/>
-                        <outlet property="searchBar" destination="g9a-mk-Xeb" id="0Hh-41-kfu"/>
                         <outlet property="tableView" destination="ZMq-dn-0T2" id="dBc-IX-Pff"/>
                         <segue destination="9Zh-8g-U17" kind="show" identifier="fontDetail" id="ONb-uk-wEW"/>
                         <segue destination="K2l-r1-28B" kind="show" identifier="fontTableDetail" id="DXG-Y6-QKs"/>
@@ -111,7 +103,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producer : Tunko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttt-Gx-Oy2">
-                                        <rect key="frame" x="149" y="136" width="96.5" height="14.5"/>
+                                        <rect key="frame" x="148.5" y="136" width="97" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -830,7 +822,6 @@
         <!--Navigation Controller-->
         <scene sceneID="7my-nm-KkL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0R9-E6-8A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rqc-Fe-rUR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fRF-Gl-0cR">
@@ -842,6 +833,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xSw-kY-a8n"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0R9-E6-8A6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>

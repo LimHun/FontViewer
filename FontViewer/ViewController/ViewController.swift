@@ -12,7 +12,7 @@ class ViewController: UIViewController
 {
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    var searchBar : UISearchBar! = nil
     
     var models : [String] = []
     var filteredModels : [String] = []
@@ -31,15 +31,19 @@ class ViewController: UIViewController
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        searchBar.delegate = self
-        
+         
         let cellNib = UINib.init(nibName: nibCellName, bundle: Bundle.main)
         tableView.register(cellNib, forCellReuseIdentifier: nibCellName)
        
         setDiviceFontFileList()
         setModel()
         setkeyboard()
+        
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        searchBar.placeholder = ""
+        self.navigationController?.navigationBar.topItem?.titleView = searchBar
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -188,13 +192,7 @@ extension ViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
-        let keyword : String = searchBar.text!
-        
-        if keyword.trimmingCharacters(in: .whitespaces).isEmpty
-        {
-            //showOkPopup(self, "공백 문자로 검색할 수 없습니다.", "확인")
-            return
-        }
+        searchBar.resignFirstResponder()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
