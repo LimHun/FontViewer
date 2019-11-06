@@ -8,23 +8,32 @@
 
 import UIKit
 import FlexColorPicker
+import AssetsLibrary
+import UIKit
+import Photos
 
 class SingleLabelViewController: UIViewController {
 
-    @IBOutlet weak var selectLabel: UILabel!
-    @IBOutlet weak var backGround: UIImageView!
-    @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var naviLabelSize: UILabel!
+    @IBOutlet var selectLabel: UILabel!
+    @IBOutlet var backGround: UIImageView!
+    @IBOutlet var stepper: UIStepper!
+    @IBOutlet var naviLabelSize: UILabel!
     @IBOutlet var initButton: UIButton!
     @IBOutlet var editTextView: UITextView!
     @IBOutlet var editingViewHeight: NSLayoutConstraint!
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
+    @IBOutlet var slider: UISlider!
+    @IBOutlet var labelWidth: UILabel!
+    @IBOutlet var buttonHidden: UIBarButtonItem!
+    
+    @IBOutlet var viewBox : [UIView] = []
     
     let initMessage : String = "뭐가좋을지몰라서다넣어봤어^ㅡ^"
     var fontName : String = ""
     var fontSize : CGFloat = 0
     var fontContent : String = ""
     var foutColor : UIColor = UIColor()
+    var width : CGFloat = 0
     
     var location = CGPoint(x: 0, y: 0)
     
@@ -77,6 +86,10 @@ class SingleLabelViewController: UIViewController {
         initButton.layer.masksToBounds = true
         initButton.layer.cornerRadius = 5
         
+        slider.value = slider.maximumValue
+        labelWidth.text = String(Int(slider.maximumValue))
+        width = CGFloat(slider.maximumValue)
+        
         setkeyboard()
     }
     
@@ -127,7 +140,40 @@ class SingleLabelViewController: UIViewController {
         selectLabel.sizeToFit()
         selectLabel.layoutIfNeeded()
     }
+     
+    @IBAction func actionCapture(_ sender: Any) {
+        
+        let image = captureScreen()
+        let a : PHPhotoLibrary = PHPhotoLibrary()
+        a.savePhoto(image: image!, albumName: "FontViewer")
+    }
     
+    func captureScreen() -> UIImage? {
+        guard let context = UIGraphicsGetCurrentContext() else { return .none }
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, UIScreen.main.scale)
+        view.layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    @IBAction func actionOnOff(_ sender: Any) {
+        
+        if buttonHidden.title!.elementsEqual(" ON ")
+        {
+            for view in viewBox {
+                view.isHidden = true
+            }
+            buttonHidden.title = "OFF"
+        }
+        else
+        {
+            for view in viewBox {
+                view.isHidden = false
+            }
+            buttonHidden.title = " ON "
+        }
+    }
     
     @IBAction func actionGetPhoto(_ sender: Any) {
         
@@ -143,6 +189,17 @@ class SingleLabelViewController: UIViewController {
         alert.addAction(cancel)
 
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        let value = (sender as! UISlider).value
+        let iValue = Int(value)
+        labelWidth.text = String(iValue)
+        
+        width = CGFloat(iValue)
+        selectLabel.frame.size.width = width
+        selectLabel.sizeToFit()
+        selectLabel.layoutIfNeeded()
     }
     
     @IBAction func actionPhotoClear(_ sender: Any) {
@@ -196,8 +253,7 @@ class SingleLabelViewController: UIViewController {
             let touchLocation = touch.location(in: self.view)
             
             labelGap = CGPoint(x: selectLabel.center.x - touchLocation.x, y: selectLabel.center.y - touchLocation.y)
-            
-            //selectLabel.center = getTouchPos(touchLocation)
+             
         }
         super.touchesBegan(touches, with: event)
         
@@ -237,7 +293,6 @@ extension SingleLabelViewController: ColorPickerDelegate {
     func colorPicker(_: ColorPickerController, selectedColor: UIColor, usingControl: ColorControl) {
         self.pickedColor = selectedColor
         selectLabel.textColor = self.pickedColor
-//        pickerColorPreview.backgroundColor = selectedColor
     }
 
     func colorPicker(_: ColorPickerController, confirmedColor: UIColor, usingControl: ColorControl) {
@@ -283,6 +338,8 @@ extension SingleLabelViewController : UITextViewDelegate
     {
         setInputBoxButton(textView)
         
+        self.selectLabel.text = textView.text
+        
         let fixedWidth = textView.frame.size.width
         textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -295,10 +352,9 @@ extension SingleLabelViewController : UITextViewDelegate
         }
         
         editingViewHeight.constant = height
-        
-        self.selectLabel.text = textView.text
-        self.selectLabel.frame.size = newSize
-        
+        self.selectLabel.frame.size.width = 320
+        self.selectLabel.frame.size.height = selectLabel.text!.heightWithConstrainedWidth(width: 320, font: selectLabel.font)
+         
     }
     
     func setInputBoxButton(_ textView: UITextView)

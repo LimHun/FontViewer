@@ -73,3 +73,14 @@ extension UIFont {
         return withTraits(traits: .traitItalic)
     }
 }
+
+
+extension String {
+    // 글자 길이에 따른 UILable 높이값 알아내기
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+
+        return boundingBox.height
+    }
+}

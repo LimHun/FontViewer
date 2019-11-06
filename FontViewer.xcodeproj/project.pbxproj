@@ -69,6 +69,7 @@
 		407EE8DF235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D8235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf */; };
 		407EE8E0235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D9235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf */; };
 		407EE8E1235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */; };
+		4094EECE23732AF90043472C /* PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094EECD23732AF90043472C /* PHPhotoLibrary.swift */; };
 		40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4270D23674652004F573F /* AppInfoViewController.swift */; };
 		40D4271023675098004F573F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D4270F23675098004F573F /* StoreKit.framework */; };
 		40D4271323688EB6004F573F /* FontViewerProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4271223688EB6004F573F /* FontViewerProducts.swift */; };
@@ -140,6 +141,7 @@
 		407EE8D8235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Light.otf"; sourceTree = "<group>"; };
 		407EE8D9235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-SemiBold.otf"; sourceTree = "<group>"; };
+		4094EECD23732AF90043472C /* PHPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPhotoLibrary.swift; sourceTree = "<group>"; };
 		40D4270D23674652004F573F /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		40D4270F23675098004F573F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		40D4271223688EB6004F573F /* FontViewerProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewerProducts.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				40DA8935236AC24D00862227 /* Extension.swift */,
+				4094EECD23732AF90043472C /* PHPhotoLibrary.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				4014DB322361FBE300262BB8 /* FontTableViewCell.swift in Sources */,
 				401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */,
 				4014DB2F2361FB2E00262BB8 /* FontDetailTableViewController.swift in Sources */,
+				4094EECE23732AF90043472C /* PHPhotoLibrary.swift in Sources */,
 				4014DB3823620FA900262BB8 /* SingleLabelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

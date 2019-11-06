@@ -328,11 +328,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-S6-VDA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-S6-VDA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPR-dd-9gO">
-                                <rect key="frame" x="14" y="438" width="327" height="21"/>
+                                <rect key="frame" x="0.0" y="438" width="414" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -392,10 +392,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EG-Ah-lxI">
-                                <rect key="frame" x="214" y="772" width="200" height="50"/>
+                                <rect key="frame" x="0.0" y="772" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oev-Is-w1V">
-                                        <rect key="frame" x="175" y="19.5" width="20" height="21"/>
+                                        <rect key="frame" x="389" y="19.5" width="20" height="21"/>
                                         <state key="normal" image="pencil.circle.fill" catalog="system">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -404,28 +404,43 @@
                                         </connections>
                                     </button>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ENv-0g-VDD">
-                                        <rect key="frame" x="73" y="14" width="94" height="32"/>
+                                        <rect key="frame" x="287" y="14" width="94" height="32"/>
                                         <connections>
                                             <action selector="actionStepperValueChanged:" destination="k7P-f5-Jwo" eventType="valueChanged" id="TbH-ZH-Cpe"/>
                                         </connections>
                                     </stepper>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow3-61-jmy">
-                                        <rect key="frame" x="23" y="20" width="42" height="20.5"/>
+                                        <rect key="frame" x="237" y="20" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="414" minValue="0.0" maxValue="414" translatesAutoresizingMaskIntoConstraints="NO" id="2G4-in-ljM">
+                                        <rect key="frame" x="6" y="15" width="225" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="k7P-f5-Jwo" eventType="valueChanged" id="9d9-GY-37Q"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9z-un-Ea8">
+                                        <rect key="frame" x="96" y="-7.5" width="30.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ENv-0g-VDD" firstAttribute="centerX" secondItem="6EG-Ah-lxI" secondAttribute="centerX" constant="20" id="3Xi-fz-S99"/>
                                     <constraint firstAttribute="height" constant="50" id="5f0-EM-w1h"/>
                                     <constraint firstItem="ENv-0g-VDD" firstAttribute="top" secondItem="6EG-Ah-lxI" secondAttribute="top" constant="14" id="6at-Ay-Jo3"/>
                                     <constraint firstItem="Oev-Is-w1V" firstAttribute="leading" secondItem="ENv-0g-VDD" secondAttribute="trailing" constant="8" id="7Ez-nL-eLk"/>
+                                    <constraint firstItem="H9z-un-Ea8" firstAttribute="centerY" secondItem="Oev-Is-w1V" secondAttribute="centerY" constant="-27" id="Bty-eL-zo9"/>
                                     <constraint firstAttribute="trailing" secondItem="Oev-Is-w1V" secondAttribute="trailing" constant="5" id="D7Z-aM-JWL"/>
                                     <constraint firstItem="Oev-Is-w1V" firstAttribute="top" secondItem="6EG-Ah-lxI" secondAttribute="top" constant="19.5" id="K9A-VY-FOA"/>
-                                    <constraint firstAttribute="width" constant="200" id="Mlb-bV-rPi"/>
                                     <constraint firstItem="ow3-61-jmy" firstAttribute="centerY" secondItem="ENv-0g-VDD" secondAttribute="centerY" id="S84-L3-qs0"/>
                                     <constraint firstItem="ENv-0g-VDD" firstAttribute="centerY" secondItem="Oev-Is-w1V" secondAttribute="centerY" id="WMs-So-4ZM"/>
+                                    <constraint firstItem="2G4-in-ljM" firstAttribute="centerY" secondItem="Oev-Is-w1V" secondAttribute="centerY" id="bhN-0b-LF8"/>
+                                    <constraint firstItem="ow3-61-jmy" firstAttribute="leading" secondItem="2G4-in-ljM" secondAttribute="trailing" constant="8" id="fu9-Rc-Rd2"/>
                                     <constraint firstItem="ENv-0g-VDD" firstAttribute="leading" secondItem="ow3-61-jmy" secondAttribute="trailing" constant="8" id="lhz-uy-hFI"/>
+                                    <constraint firstItem="2G4-in-ljM" firstAttribute="leading" secondItem="6EG-Ah-lxI" secondAttribute="leading" constant="8" id="rl1-FR-Qe5"/>
+                                    <constraint firstItem="H9z-un-Ea8" firstAttribute="centerX" secondItem="2G4-in-ljM" secondAttribute="centerX" constant="-7.5" id="ztF-Fy-lDq"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -439,6 +454,7 @@
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="trailing" secondItem="WxZ-9T-OQl" secondAttribute="trailing" id="isq-2y-qwE"/>
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="bottom" secondItem="WxZ-9T-OQl" secondAttribute="bottom" id="nag-ux-aP6"/>
                             <constraint firstItem="WxZ-9T-OQl" firstAttribute="trailing" secondItem="6EG-Ah-lxI" secondAttribute="trailing" id="tIZ-zX-RFv"/>
+                            <constraint firstItem="6EG-Ah-lxI" firstAttribute="leading" secondItem="WxZ-9T-OQl" secondAttribute="leading" id="vlI-mv-WDJ"/>
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="leading" secondItem="WxZ-9T-OQl" secondAttribute="leading" id="x9B-a1-2e6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WxZ-9T-OQl"/>
@@ -446,29 +462,52 @@
                     <navigationItem key="navigationItem" id="mTv-nC-BGd">
                         <nil key="title"/>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="camera" id="C7w-uP-ENW">
+                            <barButtonItem title="Item" image="photo" catalog="system" id="C7w-uP-ENW">
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
                                     <action selector="actionGetPhoto:" destination="k7P-f5-Jwo" id="5hL-mF-rhs"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="stop" id="RA3-TZ-n2N">
+                            <barButtonItem title="Item" image="square.and.arrow.down" catalog="system" id="VeJ-GT-14l">
+                                <connections>
+                                    <action selector="actionCapture:" destination="k7P-f5-Jwo" id="rdJ-XH-dEA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="clear" catalog="system" id="RA3-TZ-n2N">
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
                                     <action selector="actionPhotoClear:" destination="k7P-f5-Jwo" id="Gl1-xV-5Fb"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title=" ON " id="6XP-97-RUx">
+                                <connections>
+                                    <action selector="actionOnOff:" destination="k7P-f5-Jwo" id="WOK-My-89j"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="backGround" destination="Mz9-S6-VDA" id="bIg-Zo-cZr"/>
+                        <outlet property="buttonHidden" destination="6XP-97-RUx" id="yTe-Im-5pb"/>
                         <outlet property="editTextView" destination="fiM-6G-seh" id="bob-4G-kty"/>
                         <outlet property="editingViewHeight" destination="8TL-FS-VNy" id="aNK-lJ-rGi"/>
                         <outlet property="initButton" destination="kbx-4Q-BXs" id="zEJ-XI-Hca"/>
                         <outlet property="inputViewBottomAnchor" destination="nag-ux-aP6" id="xYh-7F-8O9"/>
+                        <outlet property="labelWidth" destination="H9z-un-Ea8" id="iIc-3Z-Zgd"/>
                         <outlet property="naviLabelSize" destination="ow3-61-jmy" id="4lL-fs-q2P"/>
                         <outlet property="selectLabel" destination="BPR-dd-9gO" id="8AS-bq-PPH"/>
+                        <outlet property="slider" destination="2G4-in-ljM" id="8KI-fL-bNa"/>
                         <outlet property="stepper" destination="ENv-0g-VDD" id="PZq-z0-sWx"/>
+                        <outletCollection property="viewBox" destination="UYw-Jo-4XE" collectionClass="NSMutableArray" id="Jcv-Km-csS"/>
+                        <outletCollection property="viewBox" destination="fiM-6G-seh" collectionClass="NSMutableArray" id="3cr-Sk-dpO"/>
+                        <outletCollection property="viewBox" destination="kbx-4Q-BXs" collectionClass="NSMutableArray" id="odM-ZV-4fD"/>
+                        <outletCollection property="viewBox" destination="Vmb-85-m10" collectionClass="NSMutableArray" id="Kqr-e2-bKB"/>
+                        <outletCollection property="viewBox" destination="6EG-Ah-lxI" collectionClass="NSMutableArray" id="wYP-ma-lde"/>
+                        <outletCollection property="viewBox" destination="Oev-Is-w1V" collectionClass="NSMutableArray" id="hfH-9x-7Fe"/>
+                        <outletCollection property="viewBox" destination="ENv-0g-VDD" collectionClass="NSMutableArray" id="Eci-ZS-p6t"/>
+                        <outletCollection property="viewBox" destination="ow3-61-jmy" collectionClass="NSMutableArray" id="4GB-Fi-K0q"/>
+                        <outletCollection property="viewBox" destination="2G4-in-ljM" collectionClass="NSMutableArray" id="Ojc-Nt-NHh"/>
+                        <outletCollection property="viewBox" destination="H9z-un-Ea8" collectionClass="NSMutableArray" id="lEB-yX-WkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Fh-1G-FY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -495,8 +534,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clear" catalog="system" width="64" height="56"/>
         <image name="command" catalog="system" width="64" height="56"/>
         <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="photo" catalog="system" width="64" height="46"/>
+        <image name="square.and.arrow.down" catalog="system" width="60" height="64"/>
     </resources>
     <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
 </document>
