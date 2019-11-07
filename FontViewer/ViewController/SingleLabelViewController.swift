@@ -25,15 +25,21 @@ class SingleLabelViewController: UIViewController {
     @IBOutlet var slider: UISlider!
     @IBOutlet var labelWidth: UILabel!
     @IBOutlet var buttonHidden: UIBarButtonItem!
+    @IBOutlet var lineSpacingSlider: UISlider!
+    @IBOutlet var paragraphSlider: UISlider!
+    @IBOutlet var paragraphLabel: UILabel!
+    @IBOutlet var lineSpacingLabel: UILabel!
     
     @IBOutlet var viewBox : [UIView] = []
     
-    let initMessage : String = "뭐가좋을지몰라서다넣어봤어^ㅡ^"
+    let initMessage : String = "Hello. 안녕하세요^ㅡ^"
     var fontName : String = ""
     var fontSize : CGFloat = 0
     var fontContent : String = ""
     var foutColor : UIColor = UIColor()
-    var width : CGFloat = 0
+    var width : CGFloat = 420
+    var lineSpacing : CGFloat = 0
+    var paragraph : Double = 0
     
     var location = CGPoint(x: 0, y: 0)
     
@@ -65,9 +71,7 @@ class SingleLabelViewController: UIViewController {
         self.navigationController!.navigationBar.isTranslucent = true
         
         selectLabel.font = UIFont(name: fontName, size: fontSize)
-        selectLabel.text = fontContent
-        selectLabel.sizeToFit()
-        selectLabel.layoutIfNeeded()
+        setSelectLabel(fontContent)
         
         picker.delegate = self
         editTextView.delegate = self
@@ -89,6 +93,8 @@ class SingleLabelViewController: UIViewController {
         slider.value = slider.maximumValue
         labelWidth.text = String(Int(slider.maximumValue))
         width = CGFloat(slider.maximumValue)
+        
+        setLineSpacingSlider(fontSize)
         
         setkeyboard()
     }
@@ -136,16 +142,41 @@ class SingleLabelViewController: UIViewController {
     
     @objc func textFieldDidChange(_ textField: UITextField)
     {
-        selectLabel.text = textField.text!
-        selectLabel.sizeToFit()
-        selectLabel.layoutIfNeeded()
+        setSelectLabel(textField.text!)
+    }
+    
+    func setSelectLabel(_ text : String)
+    {
+        selectLabel.text = text
+        selectLabel.setAttributeString(lineSpacing: lineSpacing, lineHeightMultiple: lineSpacing, kernValue: paragraph)
+        selectLabel.frame.size.width = width
+        selectLabel.frame.size.height = selectLabel.text!.heightWithConstrainedWidth(width: width, font: selectLabel.font)
+        selectLabel.center = CGPoint(x: self.selectLabel.center.x, y: self.selectLabel.center.y)
+        
+        lineSpacingSlider.value = 0
+        lineSpacingLabel.text = "0"
+        
+        paragraphSlider.value = 0
+        paragraphLabel.text = "0"
+        
+        width = 420
+        lineSpacing = 0
+        paragraph = 0
     }
      
     @IBAction func actionCapture(_ sender: Any) {
         
-        let image = captureScreen()
-        let a : PHPhotoLibrary = PHPhotoLibrary()
-        a.savePhoto(image: image!, albumName: "FontViewer")
+        let image = self.view.asImage()
+        UIImageWriteToSavedPhotosAlbum(image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        
+        if error != nil {
+            showToast(message: "다시 시도해주세요.", fontName: self.fontName)
+        } else {
+            showToast(message: "스크린샷이 저장되었습니다.", fontName: self.fontName)
+        }
     }
     
     func captureScreen() -> UIImage? {
@@ -155,6 +186,15 @@ class SingleLabelViewController: UIViewController {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+    
+    // 행간 슬라이더 초기화
+    func setLineSpacingSlider(_ value : CGFloat)
+    {
+        lineSpacingSlider.minimumValue = 0.0001 // Float(value)
+        lineSpacingSlider.maximumValue = 3//Float(value * 1.5)
+        lineSpacingSlider.value = Float(value)
+        lineSpacingLabel.text = String(lineSpacingSlider.value)
     }
     
     @IBAction func actionOnOff(_ sender: Any) {
@@ -197,23 +237,47 @@ class SingleLabelViewController: UIViewController {
         labelWidth.text = String(iValue)
         
         width = CGFloat(iValue)
-        selectLabel.frame.size.width = width
-        selectLabel.sizeToFit()
-        selectLabel.layoutIfNeeded()
+        self.selectLabel.frame.size.width = width
+        self.selectLabel.frame.size.height = 700
+        self.selectLabel.center = CGPoint(x: self.selectLabel.center.x, y: UIScreen.main.bounds.height/2)
     }
     
     @IBAction func actionPhotoClear(_ sender: Any) {
         backGround.image = nil
-        //photoColor.removeAll()
     }
     
-    @IBAction func actionStepperValueChanged(_ sender: UIStepper) {
-        print("sender\(sender.value)")
-        let size = CGFloat(sender.value)
+    // 행간
+    @IBAction func actionLineSpacing(_ sender: Any) {
+        let value = (sender as! UISlider).value
+        lineSpacing = CGFloat(value)
+        lineSpacingLabel.text = String(value)
         
-        selectLabel.font = UIFont(name: fontName, size: size)
-        selectLabel.sizeToFit()
-        selectLabel.layoutIfNeeded()
+        selectLabel.setAttributeString(lineSpacing: 0, lineHeightMultiple: lineSpacing, kernValue: paragraph)
+        
+        self.selectLabel.frame.size.height = 700
+        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+    }
+    
+    // 자간
+    @IBAction func actionParagraph(_ sender: Any) {
+        let value = (sender as! UISlider).value
+        paragraph = Double(value)
+        paragraphLabel.text = String(value)
+         
+        selectLabel.setAttributeString(lineSpacing: lineSpacing, lineHeightMultiple: lineSpacing, kernValue: paragraph)
+        
+        self.selectLabel.frame.size.height = 700
+        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+    }
+    
+    @IBAction func actionStepperValueChanged(_ sender: UIStepper)
+    {
+        let size = CGFloat(sender.value)
+        fontSize = size
+        setLineSpacingSlider(size)
+        
+        selectLabel.font = UIFont(name: fontName, size: fontSize)
+        setSelectLabel(selectLabel.text!)
         
         let x : Float = Float(size)
         let y : Int = Int(x)
@@ -221,12 +285,29 @@ class SingleLabelViewController: UIViewController {
         
         naviLabelSize.text = z
         
+        self.selectLabel.frame.size.height = 700
+        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
     }
     
-    @IBAction func actionInit(_ sender: Any) {
+    @IBAction func actionInit(_ sender: Any)
+    {
         selectLabel.text = initMessage
-        selectLabel.sizeToFit()
-        selectLabel.layoutIfNeeded() 
+        selectLabel.setAttributeString(lineSpacing: lineSpacing, lineHeightMultiple: lineSpacing, kernValue: paragraph)
+        selectLabel.frame.size.width = width
+        selectLabel.frame.size.height = 700
+        selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+        
+        lineSpacingSlider.value = 0
+        lineSpacingLabel.text = "0"
+        
+        paragraphSlider.value = 0
+        paragraphLabel.text = "0"
+        
+        width = 420
+        lineSpacing = 0
+        paragraph = 0
+        
+        editTextView.text = ""
     }
     
     func getTouchPos(_ location : CGPoint) -> CGPoint
@@ -338,7 +419,7 @@ extension SingleLabelViewController : UITextViewDelegate
     {
         setInputBoxButton(textView)
         
-        self.selectLabel.text = textView.text
+        setSelectLabel(textView.text)
         
         let fixedWidth = textView.frame.size.width
         textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -352,9 +433,6 @@ extension SingleLabelViewController : UITextViewDelegate
         }
         
         editingViewHeight.constant = height
-        self.selectLabel.frame.size.width = 320
-        self.selectLabel.frame.size.height = selectLabel.text!.heightWithConstrainedWidth(width: 320, font: selectLabel.font)
-         
     }
     
     func setInputBoxButton(_ textView: UITextView)

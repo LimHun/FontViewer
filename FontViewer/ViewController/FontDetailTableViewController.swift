@@ -93,6 +93,10 @@ class FontDetailTableViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @IBAction func actionDetailShow(_ sender: Any) {
+        self.performSegue(withIdentifier: "singleText", sender: self)
+    }
+    
     @IBAction func actionColor(_ sender: Any) {
         let colorPickerController = DefaultColorPickerViewController()
         colorPickerController.delegate = self

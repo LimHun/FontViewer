@@ -84,3 +84,78 @@ extension String {
         return boundingBox.height
     }
 }
+
+//extension NSAttributedString {
+//    func heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
+//        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+//        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+//
+//        return boundingBox.height
+//    }
+//
+//    func widthWithConstrainedHeight(height: CGFloat) -> CGFloat {
+//        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+//        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+//
+//        return boundingBox.width
+//    }
+//}
+
+extension UIView {
+    func asImage() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image {
+            rendererContext in layer.render(in: rendererContext.cgContext)
+        }
+    }
+} 
+
+
+extension UILabel {
+    // 행간
+    func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
+
+        guard let labelText = self.text else { return }
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple
+
+        let attributedString:NSMutableAttributedString
+        if let labelattributedText = self.attributedText {
+            attributedString = NSMutableAttributedString(attributedString: labelattributedText)
+        } else {
+            attributedString = NSMutableAttributedString(string: labelText)
+        }
+
+        // Line spacing attribute
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+
+        self.attributedText = attributedString
+    }
+    
+    // 자간
+    func addCharacterSpacing(kernValue: Double = 1.15)
+    {
+        if let labelText = text, labelText.count > 0 {
+            let attributedString = NSMutableAttributedString(string: labelText)
+            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length))
+            attributedText = attributedString
+        }
+    }
+    
+    // 자간 + 행간 조정
+    func setAttributeString(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0, kernValue: Double = 1.15) {
+        guard let labelText = self.text else { return }
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple
+        
+        let attributedString = NSMutableAttributedString(string: labelText)
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length))
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        attributedText = attributedString
+    }
+    
+}

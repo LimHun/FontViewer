@@ -69,6 +69,7 @@
 		407EE8DF235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D8235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf */; };
 		407EE8E0235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8D9235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf */; };
 		407EE8E1235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */; };
+		40949A0E2373CBAD00984B75 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40949A0D2373CBAD00984B75 /* Toast.swift */; };
 		4094EECE23732AF90043472C /* PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094EECD23732AF90043472C /* PHPhotoLibrary.swift */; };
 		40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4270D23674652004F573F /* AppInfoViewController.swift */; };
 		40D4271023675098004F573F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D4270F23675098004F573F /* StoreKit.framework */; };
@@ -141,6 +142,7 @@
 		407EE8D8235E3E5600E93EEF /* NotoSerifCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Light.otf"; sourceTree = "<group>"; };
 		407EE8D9235E3E5600E93EEF /* NotoSerifCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-SemiBold.otf"; sourceTree = "<group>"; };
+		40949A0D2373CBAD00984B75 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4094EECD23732AF90043472C /* PHPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPhotoLibrary.swift; sourceTree = "<group>"; };
 		40D4270D23674652004F573F /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		40D4270F23675098004F573F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -309,6 +311,7 @@
 			children = (
 				40DA8935236AC24D00862227 /* Extension.swift */,
 				4094EECD23732AF90043472C /* PHPhotoLibrary.swift */,
+				40949A0D2373CBAD00984B75 /* Toast.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				40D4271323688EB6004F573F /* FontViewerProducts.swift in Sources */,
 				407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */,
 				401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */,
+				40949A0E2373CBAD00984B75 /* Toast.swift in Sources */,
 				40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */,
 				40DA8936236AC24D00862227 /* Extension.swift in Sources */,
 				4014DB322361FBE300262BB8 /* FontTableViewCell.swift in Sources */,

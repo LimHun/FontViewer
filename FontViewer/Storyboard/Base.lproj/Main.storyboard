@@ -255,6 +255,9 @@
                                         <state key="normal" title="보러가기">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="actionDetailShow:" destination="K2l-r1-28B" eventType="touchUpInside" id="BYJ-FG-bcx"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4I-Fm-KwI">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="0.5"/>
@@ -443,19 +446,63 @@
                                     <constraint firstItem="H9z-un-Ea8" firstAttribute="centerX" secondItem="2G4-in-ljM" secondAttribute="centerX" constant="-7.5" id="ztF-Fy-lDq"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="Raw-Sx-40c" userLabel="lineSpacingSlider">
+                                <rect key="frame" x="332" y="682" width="124" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="3xS-ac-Waa"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.transform.rotation.z" value="-1.570795"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionLineSpacing:" destination="k7P-f5-Jwo" eventType="valueChanged" id="L5q-b4-ZUQ"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-10" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="nYW-dC-iyy" userLabel="paragraphSlider">
+                                <rect key="frame" x="292" y="682" width="124" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="PWl-MG-VQ5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.transform.rotation.z" value="-1.570795"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionParagraph:" destination="k7P-f5-Jwo" eventType="valueChanged" id="FaV-gW-lsT"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiJ-8q-Bvx">
+                                <rect key="frame" x="382" y="577" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3r-Mc-7Ge">
+                                <rect key="frame" x="342" y="596" width="24" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="WxZ-9T-OQl" firstAttribute="trailing" secondItem="Raw-Sx-40c" secondAttribute="trailing" constant="-40" id="0dn-NR-6rF"/>
+                            <constraint firstItem="Raw-Sx-40c" firstAttribute="top" secondItem="iiJ-8q-Bvx" secondAttribute="bottom" constant="84" id="JDV-40-c34"/>
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="top" secondItem="6EG-Ah-lxI" secondAttribute="bottom" id="T2V-mJ-PRp"/>
                             <constraint firstItem="WxZ-9T-OQl" firstAttribute="trailing" secondItem="Mz9-S6-VDA" secondAttribute="trailing" id="Zkf-z4-hgm"/>
+                            <constraint firstItem="6EG-Ah-lxI" firstAttribute="top" secondItem="nYW-dC-iyy" secondAttribute="bottom" constant="60" id="aVD-BM-40m"/>
                             <constraint firstItem="WxZ-9T-OQl" firstAttribute="bottom" secondItem="Mz9-S6-VDA" secondAttribute="bottom" constant="-34" id="bj1-qX-jOi"/>
                             <constraint firstItem="Mz9-S6-VDA" firstAttribute="leading" secondItem="WxZ-9T-OQl" secondAttribute="leading" id="e2E-NJ-ZMB"/>
                             <constraint firstItem="Mz9-S6-VDA" firstAttribute="top" secondItem="WxZ-9T-OQl" secondAttribute="top" constant="-88" id="fCF-10-sqL"/>
+                            <constraint firstItem="A3r-Mc-7Ge" firstAttribute="centerX" secondItem="nYW-dC-iyy" secondAttribute="centerX" id="hdn-wb-76t"/>
+                            <constraint firstItem="nYW-dC-iyy" firstAttribute="top" secondItem="A3r-Mc-7Ge" secondAttribute="bottom" constant="65" id="ihY-ik-pNn"/>
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="trailing" secondItem="WxZ-9T-OQl" secondAttribute="trailing" id="isq-2y-qwE"/>
+                            <constraint firstItem="iiJ-8q-Bvx" firstAttribute="centerX" secondItem="Raw-Sx-40c" secondAttribute="centerX" id="lW4-Fz-yRU"/>
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="bottom" secondItem="WxZ-9T-OQl" secondAttribute="bottom" id="nag-ux-aP6"/>
                             <constraint firstItem="WxZ-9T-OQl" firstAttribute="trailing" secondItem="6EG-Ah-lxI" secondAttribute="trailing" id="tIZ-zX-RFv"/>
                             <constraint firstItem="6EG-Ah-lxI" firstAttribute="leading" secondItem="WxZ-9T-OQl" secondAttribute="leading" id="vlI-mv-WDJ"/>
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="leading" secondItem="WxZ-9T-OQl" secondAttribute="leading" id="x9B-a1-2e6"/>
+                            <constraint firstItem="nYW-dC-iyy" firstAttribute="trailing" secondItem="WxZ-9T-OQl" secondAttribute="trailing" id="xaN-Nd-c1p"/>
+                            <constraint firstItem="6EG-Ah-lxI" firstAttribute="top" secondItem="Raw-Sx-40c" secondAttribute="bottom" constant="60" id="zCu-Rw-RoN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WxZ-9T-OQl"/>
                     </view>
@@ -494,7 +541,11 @@
                         <outlet property="initButton" destination="kbx-4Q-BXs" id="zEJ-XI-Hca"/>
                         <outlet property="inputViewBottomAnchor" destination="nag-ux-aP6" id="xYh-7F-8O9"/>
                         <outlet property="labelWidth" destination="H9z-un-Ea8" id="iIc-3Z-Zgd"/>
+                        <outlet property="lineSpacingLabel" destination="iiJ-8q-Bvx" id="E80-uu-HhP"/>
+                        <outlet property="lineSpacingSlider" destination="Raw-Sx-40c" id="AK7-iC-aWB"/>
                         <outlet property="naviLabelSize" destination="ow3-61-jmy" id="4lL-fs-q2P"/>
+                        <outlet property="paragraphLabel" destination="A3r-Mc-7Ge" id="ydP-GS-Ujz"/>
+                        <outlet property="paragraphSlider" destination="nYW-dC-iyy" id="rfb-az-YNX"/>
                         <outlet property="selectLabel" destination="BPR-dd-9gO" id="8AS-bq-PPH"/>
                         <outlet property="slider" destination="2G4-in-ljM" id="8KI-fL-bNa"/>
                         <outlet property="stepper" destination="ENv-0g-VDD" id="PZq-z0-sWx"/>

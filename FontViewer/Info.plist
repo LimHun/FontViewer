@@ -24,6 +24,8 @@
 	<string>카메라쓰자</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>엘범쓰자</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>설정한 화면 상태를 저장 할 수 있습니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>나눔손글씨 할아버지의나눔.ttf</string>
