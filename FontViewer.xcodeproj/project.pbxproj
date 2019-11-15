@@ -22,6 +22,7 @@
 		401DEEDA235E11C4006B97CB /* FontMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */; };
 		403383D82378FF300073D21D /* ProductIds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 403383D72378FF300073D21D /* ProductIds.plist */; };
 		404AF88D237E5742009F6169 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AF88C237E5742009F6169 /* Test.swift */; };
+		404AF892237E9F88009F6169 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AF891237E9F88009F6169 /* StoreObserver.swift */; };
 		4071C78E236F9256007FD901 /* NanumGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C777236F9249007FD901 /* NanumGothicBold.ttf */; };
 		4071C78F236F9256007FD901 /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C778236F924A007FD901 /* NanumBarunGothic.ttf */; };
 		4071C790236F9256007FD901 /* NanumSquareRoundB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C779236F924A007FD901 /* NanumSquareRoundB.ttf */; };
@@ -95,6 +96,7 @@
 		401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontMenuTableViewCell.xib; sourceTree = "<group>"; };
 		403383D72378FF300073D21D /* ProductIds.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ProductIds.plist; sourceTree = "<group>"; };
 		404AF88C237E5742009F6169 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		404AF891237E9F88009F6169 /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
 		4071C777236F9249007FD901 /* NanumGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.ttf; sourceTree = "<group>"; };
 		4071C778236F924A007FD901 /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
 		4071C779236F924A007FD901 /* NanumSquareRoundB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundB.ttf; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		40D4271123688E93004F573F /* IAP */ = {
 			isa = PBXGroup;
 			children = (
+				404AF891237E9F88009F6169 /* StoreObserver.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				40DA8936236AC24D00862227 /* Extension.swift in Sources */,
 				4014DB322361FBE300262BB8 /* FontTableViewCell.swift in Sources */,
 				401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */,
+				404AF892237E9F88009F6169 /* StoreObserver.swift in Sources */,
 				4014DB2F2361FB2E00262BB8 /* FontDetailTableViewController.swift in Sources */,
 				4094EECE23732AF90043472C /* PHPhotoLibrary.swift in Sources */,
 				4014DB3823620FA900262BB8 /* SingleLabelViewController.swift in Sources */,
@@ -658,6 +662,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SJKHCRL68N;
 				INFOPLIST_FILE = FontViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -678,6 +683,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SJKHCRL68N;
 				INFOPLIST_FILE = FontViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
