@@ -20,6 +20,7 @@
 		401DEED0235E0F0F006B97CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401DEECE235E0F0F006B97CB /* LaunchScreen.storyboard */; };
 		401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEED7235E11C4006B97CB /* FontMenuTableViewCell.swift */; };
 		401DEEDA235E11C4006B97CB /* FontMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */; };
+		403383D82378FF300073D21D /* ProductIds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 403383D72378FF300073D21D /* ProductIds.plist */; };
 		4071C78E236F9256007FD901 /* NanumGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C777236F9249007FD901 /* NanumGothicBold.ttf */; };
 		4071C78F236F9256007FD901 /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C778236F924A007FD901 /* NanumBarunGothic.ttf */; };
 		4071C790236F9256007FD901 /* NanumSquareRoundB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C779236F924A007FD901 /* NanumSquareRoundB.ttf */; };
@@ -73,8 +74,6 @@
 		4094EECE23732AF90043472C /* PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094EECD23732AF90043472C /* PHPhotoLibrary.swift */; };
 		40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4270D23674652004F573F /* AppInfoViewController.swift */; };
 		40D4271023675098004F573F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D4270F23675098004F573F /* StoreKit.framework */; };
-		40D4271323688EB6004F573F /* FontViewerProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4271223688EB6004F573F /* FontViewerProducts.swift */; };
-		40D4271523689106004F573F /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4271423689106004F573F /* IAPHelper.swift */; };
 		40DA8936236AC24D00862227 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA8935236AC24D00862227 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +92,7 @@
 		401DEED1235E0F0F006B97CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		401DEED7235E11C4006B97CB /* FontMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMenuTableViewCell.swift; sourceTree = "<group>"; };
 		401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontMenuTableViewCell.xib; sourceTree = "<group>"; };
+		403383D72378FF300073D21D /* ProductIds.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ProductIds.plist; sourceTree = "<group>"; };
 		4071C777236F9249007FD901 /* NanumGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.ttf; sourceTree = "<group>"; };
 		4071C778236F924A007FD901 /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
 		4071C779236F924A007FD901 /* NanumSquareRoundB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundB.ttf; sourceTree = "<group>"; };
@@ -146,8 +146,6 @@
 		4094EECD23732AF90043472C /* PHPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPhotoLibrary.swift; sourceTree = "<group>"; };
 		40D4270D23674652004F573F /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		40D4270F23675098004F573F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		40D4271223688EB6004F573F /* FontViewerProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontViewerProducts.swift; sourceTree = "<group>"; };
-		40D4271423689106004F573F /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		40DA8935236AC24D00862227 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5419CCE6FDD6D137633A47EF /* Pods-FontViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FontViewer.release.xcconfig"; path = "Target Support Files/Pods-FontViewer/Pods-FontViewer.release.xcconfig"; sourceTree = "<group>"; };
 		B5FE4AD5B4FBF5D47B5BBEC1 /* Pods_FontViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FontViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +260,7 @@
 				401DEEC5235E0F0E006B97CB /* SceneDelegate.swift */,
 				401DEECC235E0F0F006B97CB /* Assets.xcassets */,
 				401DEED1235E0F0F006B97CB /* Info.plist */,
+				403383D72378FF300073D21D /* ProductIds.plist */,
 			);
 			path = FontViewer;
 			sourceTree = "<group>";
@@ -300,8 +299,6 @@
 		40D4271123688E93004F573F /* IAP */ = {
 			isa = PBXGroup;
 			children = (
-				40D4271423689106004F573F /* IAPHelper.swift */,
-				40D4271223688EB6004F573F /* FontViewerProducts.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -419,6 +416,7 @@
 				4071C7D3236F99C2007FD901 /* 나눔손글씨 무궁화.ttf in Resources */,
 				4071C7CC236F99C2007FD901 /* 나눔손글씨 암스테르담.ttf in Resources */,
 				4071C7D8236F99C2007FD901 /* 나눔손글씨 강부장님체.ttf in Resources */,
+				403383D82378FF300073D21D /* ProductIds.plist in Resources */,
 				4071C78E236F9256007FD901 /* NanumGothicBold.ttf in Resources */,
 				4071C799236F9256007FD901 /* NanumBarunGothicUltraLight.ttf in Resources */,
 				4071C794236F9256007FD901 /* NanumSquareRoundR.ttf in Resources */,
@@ -498,11 +496,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40D4271523689106004F573F /* IAPHelper.swift in Sources */,
 				407EE841235E2C8B00E93EEF /* DataManager.swift in Sources */,
 				401DEEC8235E0F0E006B97CB /* ViewController.swift in Sources */,
 				401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */,
-				40D4271323688EB6004F573F /* FontViewerProducts.swift in Sources */,
 				407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */,
 				401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */,
 				40949A0E2373CBAD00984B75 /* Toast.swift in Sources */,
@@ -664,7 +660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tunko.fontviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -684,7 +680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tunko.fontviewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
