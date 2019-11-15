@@ -21,6 +21,7 @@
 		401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEED7235E11C4006B97CB /* FontMenuTableViewCell.swift */; };
 		401DEEDA235E11C4006B97CB /* FontMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */; };
 		403383D82378FF300073D21D /* ProductIds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 403383D72378FF300073D21D /* ProductIds.plist */; };
+		404AF88D237E5742009F6169 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404AF88C237E5742009F6169 /* Test.swift */; };
 		4071C78E236F9256007FD901 /* NanumGothicBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C777236F9249007FD901 /* NanumGothicBold.ttf */; };
 		4071C78F236F9256007FD901 /* NanumBarunGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C778236F924A007FD901 /* NanumBarunGothic.ttf */; };
 		4071C790236F9256007FD901 /* NanumSquareRoundB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4071C779236F924A007FD901 /* NanumSquareRoundB.ttf */; };
@@ -93,6 +94,7 @@
 		401DEED7235E11C4006B97CB /* FontMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMenuTableViewCell.swift; sourceTree = "<group>"; };
 		401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontMenuTableViewCell.xib; sourceTree = "<group>"; };
 		403383D72378FF300073D21D /* ProductIds.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ProductIds.plist; sourceTree = "<group>"; };
+		404AF88C237E5742009F6169 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		4071C777236F9249007FD901 /* NanumGothicBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.ttf; sourceTree = "<group>"; };
 		4071C778236F924A007FD901 /* NanumBarunGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.ttf; sourceTree = "<group>"; };
 		4071C779236F924A007FD901 /* NanumSquareRoundB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundB.ttf; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				4014DB2E2361FB2E00262BB8 /* FontDetailTableViewController.swift */,
 				4014DB3723620FA900262BB8 /* SingleLabelViewController.swift */,
 				40D4270D23674652004F573F /* AppInfoViewController.swift */,
+				404AF88C237E5742009F6169 /* Test.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				407EE841235E2C8B00E93EEF /* DataManager.swift in Sources */,
 				401DEEC8235E0F0E006B97CB /* ViewController.swift in Sources */,
 				401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */,
+				404AF88D237E5742009F6169 /* Test.swift in Sources */,
 				407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */,
 				401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */,
 				40949A0E2373CBAD00984B75 /* Toast.swift in Sources */,
