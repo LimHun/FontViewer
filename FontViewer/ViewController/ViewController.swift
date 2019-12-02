@@ -12,16 +12,16 @@ class ViewController: UIViewController
 {
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var rightMenu: UIBarButtonItem!
     var searchBar : UISearchBar! = nil
     
-    var models : [String] = []
-    var filteredModels : [String] = []
-    let data = [""]
-    var filteredData: [String]!
+    let data : [String]             = []
+    var models : [String]           = []
+    var filteredModels : [String]   = []
+    var filteredData : [String]     = []
     var searchListString : [String] = []
     
     let nibCellName : String = "FontMenuTableViewCell"
-    
     var selectIndex : Int = -1
     
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ class ViewController: UIViewController
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 120
          
         let cellNib = UINib.init(nibName: nibCellName, bundle: Bundle.main)
         tableView.register(cellNib, forCellReuseIdentifier: nibCellName)
@@ -42,14 +43,30 @@ class ViewController: UIViewController
         searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.sizeToFit()
-        searchBar.placeholder = "입력해주세요 :)"
+        searchBar.placeholder = "Search :)"
+        searchBar.showsCancelButton = false
         self.navigationController?.navigationBar.topItem?.titleView = searchBar
+        
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        showSearchCancelMenu(isVisble: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           
         if let fontDetailTableViewController = segue.destination as? FontDetailTableViewController {
             fontDetailTableViewController.fontName = filteredModels[selectIndex]
+        }
+    }
+    
+    func showSearchCancelMenu(isVisble : Bool)
+    {
+        if isVisble {
+            navigationItem.rightBarButtonItems = []
+        } else {
+            navigationItem.rightBarButtonItems = [rightMenu]
         }
     }
     
@@ -138,9 +155,10 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: nibCellName, for: indexPath) as! FontMenuTableViewCell
         let fontName = filteredModels[indexPath.row]
         
-        cell.fontNameLabel.font = UIFont(name: fontName, size: 24)
-        cell.fontNameLabel.text = fontName
-        cell.selectionStyle = .none
+        cell.fontName.text = fontName
+        cell.fontReview.font = UIFont(name: fontName, size: 24)
+        cell.fontReview.text = fontName
+        cell.selectionStyle = .default
         
         return cell
         
@@ -159,10 +177,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
 
 extension ViewController : UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
         return true
-        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
@@ -181,7 +198,8 @@ extension ViewController : UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
     {
-        searchBar.text = ""
+        //searchBar.text = ""
+        searchBar.endEditing(false)
         setModel()
         tableView.reloadData()
     }
@@ -191,7 +209,28 @@ extension ViewController : UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        searchBar.showsCancelButton = true
+        showSearchCancelMenu(isVisble: true)
+        
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
+    {
+        if searchBar.text!.count == 0 {
+            searchBar.showsCancelButton = false
+            showSearchCancelMenu(isVisble: false)
+        }
+        else {
+            searchBar.showsCancelButton = true
+            showSearchCancelMenu(isVisble: true)
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
         self.view.endEditing(true)
     }
     

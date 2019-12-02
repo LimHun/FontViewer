@@ -10,6 +10,7 @@ import UIKit
 
 class FontMenuTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var fontNameLabel: UILabel!
+    @IBOutlet var fontReview: UILabel!
+    @IBOutlet var fontName: UILabel!
     
 }

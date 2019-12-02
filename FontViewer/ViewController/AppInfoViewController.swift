@@ -13,10 +13,7 @@ class AppInfoViewController: UIViewController, SKProductsRequestDelegate {
      
     @IBOutlet weak var buttonView: UIView!
     @IBOutlet var donationButton: UIView!
-    
-    let ProductID = "com.tunko.fontviewer.Sponsoring"
-    let productIDs : [String] = ["com.tunko.fontviewer.SponsoringTest"]
-    
+          
     let iapObserver = StoreObserver()
     var productRequest : SKProductsRequest?
     
@@ -31,7 +28,7 @@ class AppInfoViewController: UIViewController, SKProductsRequestDelegate {
         //donationButton.isHidden = true
         
         SKPaymentQueue.default().add(iapObserver)
-        let pIDs = Set(["com.tunko.fontviewer.SponsoringTest"])
+        let pIDs = Set(["com.tunko.fontviewer.Sponsoring"])
         productRequest = SKProductsRequest(productIdentifiers: pIDs)
         productRequest!.delegate = self
         
@@ -53,17 +50,13 @@ class AppInfoViewController: UIViewController, SKProductsRequestDelegate {
         
         print("결제 요청")
         
-        let payment = SKMutablePayment(product: validProductArray[0])
-        SKPaymentQueue.default().add(payment)
-        print("변화가 있나요?")
-//        if SKPaymentQueue.canMakePayments() {
-//            print("겔제 요청이 가능합니다.")
-//            let paymentRequest = SKMutablePayment()
-//            paymentRequest.productIdentifier = ProductID
-//            SKPaymentQueue.default().add(paymentRequest)
-//        } else {
-//            print("결제 요청이 불가능 합니다.")
-//        }
+        if validProductArray.count > 0 {
+            let payment = SKMutablePayment(product: validProductArray[0])
+            SKPaymentQueue.default().add(payment)
+            print("변화가 있나요?")
+        } else {
+            print("결제 상품이 없습니다.")
+        }
     }
     
     // 상품 정보를 받은 후 처리 메소드 입니다.

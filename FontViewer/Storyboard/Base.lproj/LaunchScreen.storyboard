@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,17 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simple is Best" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsW-6l-ETC">
-                                <rect key="frame" x="92.5" y="305" width="229.5" height="286.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splashscreen" translatesAutoresizingMaskIntoConstraints="NO" id="3bG-ea-CYK">
+                                <rect key="frame" x="122" y="350" width="170" height="196"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="196" id="Zc6-23-bSW"/>
+                                    <constraint firstAttribute="width" constant="170" id="zgi-ja-TMY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="SsW-6l-ETC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="17r-SB-Mgh"/>
-                            <constraint firstItem="SsW-6l-ETC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1WO-Ug-ti4"/>
+                            <constraint firstItem="3bG-ea-CYK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FDe-L6-VFs"/>
+                            <constraint firstItem="3bG-ea-CYK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jOI-V5-On8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -35,4 +36,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Splashscreen" width="170" height="196"/>
+    </resources>
 </document>

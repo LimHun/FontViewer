@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public static let fontViewerShopping = "com.tunko.fontviewer.FontViewerShopping"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // 3초 런치 스크린 딜레이
+        Thread.sleep(forTimeInterval: 2.0)
+        
         return true
     }
 

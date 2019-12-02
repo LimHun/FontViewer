@@ -30,6 +30,7 @@
 	<string>엘범쓰자</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NotoSansCJKkr-Regular.otf</string>
 		<string>나눔손글씨 할아버지의나눔.ttf</string>
 		<string>나눔손글씨 외할머니글씨.ttf</string>
 		<string>나눔손글씨 암스테르담.ttf</string>
