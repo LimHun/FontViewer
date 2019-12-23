@@ -64,7 +64,7 @@ class ViewController: UIViewController
     func adsBannerSetting() {
         
         bannerView.delegate = self
-        bannerView.adUnitID = "ca-app-pub-9063444605027888~8934881583"
+        bannerView.adUnitID = "ca-app-pub-9063444605027888/8951672388"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
