@@ -1,11 +1,41 @@
 PODS:
   - FlexColorPicker (1.2.1)
+  - Google-Mobile-Ads-SDK (7.53.1):
+    - GoogleAppMeasurement (~> 6.0)
+  - GoogleAppMeasurement (6.1.2):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (6.3.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.3.0)
+  - GoogleUtilities/Logger (6.3.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.3.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.3.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.3.0)"
+  - GoogleUtilities/Reachability (6.3.0):
+    - GoogleUtilities/Logger
   - KMPlaceholderTextView (1.4.0)
   - MarqueeLabel (4.0.0)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - FlexColorPicker
+  - Google-Mobile-Ads-SDK
   - KMPlaceholderTextView (~> 1.4.0)
   - MarqueeLabel
   - SwiftyJSON (~> 4.0)
@@ -13,16 +43,24 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - FlexColorPicker
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
     - KMPlaceholderTextView
     - MarqueeLabel
+    - nanopb
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   FlexColorPicker: 2c6fe41cb33a650d5934fad75ab0e25df4b5af2f
+  Google-Mobile-Ads-SDK: fac081606dbd438d8db57198b83ba8b5f875a601
+  GoogleAppMeasurement: 0ae90be1cc4dad40f4a27fc767ef59fa032ec87b
+  GoogleUtilities: 9c2c544202301110b29f7974a82e77fdcf12bf51
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 8dac334093620036a97db7124ab0daa3ccd829b7
+PODFILE CHECKSUM: 9847d309d70c3d01766475b399609933133b2584
 
 COCOAPODS: 1.8.4

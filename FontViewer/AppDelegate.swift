@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public static let fontViewerShopping = "com.tunko.fontviewer.FontViewerShopping"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Initialize Google Mobile Ads SDK
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // 3초 런치 스크린 딜레이
         Thread.sleep(forTimeInterval: 2.0)

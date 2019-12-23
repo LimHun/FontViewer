@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ViewController: UIViewController
 {
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var rightMenu: UIBarButtonItem!
+    
+    @IBOutlet var bannerView: GADBannerView!
+    
     var searchBar : UISearchBar! = nil
     
     let data : [String]             = []
@@ -26,6 +30,8 @@ class ViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        adsBannerSetting()
         
         hideKeyboardWhenTappedAround()
         
@@ -45,6 +51,7 @@ class ViewController: UIViewController
         searchBar.sizeToFit()
         searchBar.placeholder = "Search :)"
         searchBar.showsCancelButton = false
+        searchBar.searchBarStyle = .default
         self.navigationController?.navigationBar.topItem?.titleView = searchBar
         
         self.navigationItem.largeTitleDisplayMode = .never
@@ -54,10 +61,29 @@ class ViewController: UIViewController
         showSearchCancelMenu(isVisble: false)
     }
     
+    func adsBannerSetting() {
+        
+        bannerView.delegate = self
+        bannerView.adUnitID = "ca-app-pub-9063444605027888~8934881583"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-          
-        if let fontDetailTableViewController = segue.destination as? FontDetailTableViewController {
-            fontDetailTableViewController.fontName = filteredModels[selectIndex]
+           
+        if let singleLabelViewController = segue.destination as? SingleLabelViewController {
+            singleLabelViewController.fontName = filteredModels[selectIndex]
+            singleLabelViewController.fontSize = 20//selectFontSize
+            singleLabelViewController.fontContent = "안녕하세요"//printText
+            
+            if self.traitCollection.userInterfaceStyle == .dark {
+                // User Interface is Dark
+                singleLabelViewController.foutColor = UIColor.white
+            } else {
+               // User Interface is Light
+                singleLabelViewController.foutColor = UIColor.black
+            }
+            
         }
     }
     
@@ -170,7 +196,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
         
         self.selectIndex = indexPath.row
         
-        self.performSegue(withIdentifier: "fontTableDetail", sender: self)
+        self.performSegue(withIdentifier: "SingleLabelViewController", sender: self)
         
     }
 }
@@ -234,4 +260,40 @@ extension ViewController : UISearchBarDelegate {
         self.view.endEditing(true)
     }
     
+}
+
+extension ViewController : GADBannerViewDelegate {
+   
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("adViewDidReceiveAd")
+    }
+
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+        didFailToReceiveAdWithError error: GADRequestError) {
+      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("adViewWillPresentScreen")
+    }
+
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewWillDismissScreen")
+    }
+
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewDidDismissScreen")
+    }
+
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+      print("adViewWillLeaveApplication")
+    }
 }

@@ -111,12 +111,15 @@ class FontDetailTableViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
           
-        if let singleLabelViewController = segue.destination as? SingleLabelViewController {
-            singleLabelViewController.fontName = fontName
-            singleLabelViewController.fontSize = selectFontSize
-            singleLabelViewController.fontContent = printText
-            singleLabelViewController.foutColor = self.pickedColor
+        if let fontDetailTableViewController = segue.destination as? FontDetailTableViewController {
+            fontDetailTableViewController.fontName = fontName
         }
+//        if let singleLabelViewController = segue.destination as? SingleLabelViewController {
+//            singleLabelViewController.fontName = fontName
+//            singleLabelViewController.fontSize = selectFontSize
+//            singleLabelViewController.fontContent = printText
+//            singleLabelViewController.foutColor = self.pickedColor
+//        }
     }
     
     func setkeyboard()
@@ -187,19 +190,16 @@ extension FontDetailTableViewController : UITableViewDelegate, UITableViewDataSo
         cell.contentText.textColor = self.pickedColor
         setContentTextSetting(indexPath, cell.contentText)
         setContentText(cell.contentText)
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectFontSize = CGFloat(Int(initFontSize) + fontSizeGap * indexPath.row)
-        self.performSegue(withIdentifier: "singleText", sender: self)
-        
+        self.performSegue(withIdentifier: "FontDetailTableViewController", sender: self) 
     }
 }
 

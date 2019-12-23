@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rqc-Fe-rUR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rqc-Fe-rUR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSk-dH-G0p">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSk-dH-G0p" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="724" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -45,7 +45,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="lij-7i-Hzs">
-                        <barButtonItem key="rightBarButtonItem" image="iconLightMenu" id="JLE-dN-EfW">
+                        <barButtonItem key="rightBarButtonItem" image="Menu" id="JLE-dN-EfW">
                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <segue destination="xwU-ZR-QhW" kind="modal" id="eA0-ZR-hlY"/>
@@ -53,10 +53,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bannerView" destination="CSk-dH-G0p" id="kkG-TB-Nff"/>
                         <outlet property="inputViewBottomAnchor" destination="KtU-8X-Xqz" id="Vh6-Xm-tId"/>
                         <outlet property="rightMenu" destination="JLE-dN-EfW" id="bts-HK-zEk"/>
                         <outlet property="tableView" destination="ZMq-dn-0T2" id="dBc-IX-Pff"/>
-                        <segue destination="K2l-r1-28B" kind="show" identifier="fontTableDetail" id="DXG-Y6-QKs"/>
+                        <segue destination="k7P-f5-Jwo" kind="show" identifier="SingleLabelViewController" id="mwH-KT-9Ug"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -296,12 +297,11 @@
                         <outlet property="tableView" destination="IVX-8q-OBL" id="DDV-UW-L3H"/>
                         <outletCollection property="buttons" destination="xJj-Uj-zis" collectionClass="NSMutableArray" id="a30-Po-r8v"/>
                         <outletCollection property="buttons" destination="mnT-Ea-XHv" collectionClass="NSMutableArray" id="mfJ-yJ-KHW"/>
-                        <segue destination="k7P-f5-Jwo" kind="show" identifier="singleText" id="k1Q-wi-ZkC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbc-EH-ERg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1744.9275362318842" y="138.61607142857142"/>
+            <point key="canvasLocation" x="2645" y="139"/>
         </scene>
         <!--Single Label View Controller-->
         <scene sceneID="o9e-m0-1S3">
@@ -462,10 +462,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4V-v7-Jxt">
+                                <rect key="frame" x="359" y="5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ozo-Mo-n7e"/>
+                                    <constraint firstAttribute="height" constant="40" id="rX2-1G-W0T"/>
+                                </constraints>
+                                <state key="normal" image="list.bullet" catalog="system"/>
+                                <connections>
+                                    <action selector="actionGoSizeList:" destination="k7P-f5-Jwo" eventType="touchUpInside" id="U9M-uN-rN8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WxZ-9T-OQl" firstAttribute="trailing" secondItem="Raw-Sx-40c" secondAttribute="trailing" constant="-40" id="0dn-NR-6rF"/>
+                            <constraint firstItem="WxZ-9T-OQl" firstAttribute="trailing" secondItem="b4V-v7-Jxt" secondAttribute="trailing" constant="15" id="DuO-3c-iJ2"/>
+                            <constraint firstItem="b4V-v7-Jxt" firstAttribute="top" secondItem="WxZ-9T-OQl" secondAttribute="top" constant="5" id="IMj-D4-rcC"/>
                             <constraint firstItem="Raw-Sx-40c" firstAttribute="top" secondItem="iiJ-8q-Bvx" secondAttribute="bottom" constant="84" id="JDV-40-c34"/>
                             <constraint firstItem="UYw-Jo-4XE" firstAttribute="top" secondItem="6EG-Ah-lxI" secondAttribute="bottom" id="T2V-mJ-PRp"/>
                             <constraint firstItem="WxZ-9T-OQl" firstAttribute="trailing" secondItem="Mz9-S6-VDA" secondAttribute="trailing" id="Zkf-z4-hgm"/>
@@ -539,11 +552,12 @@
                         <outletCollection property="viewBox" destination="ow3-61-jmy" collectionClass="NSMutableArray" id="4GB-Fi-K0q"/>
                         <outletCollection property="viewBox" destination="2G4-in-ljM" collectionClass="NSMutableArray" id="Ojc-Nt-NHh"/>
                         <outletCollection property="viewBox" destination="H9z-un-Ea8" collectionClass="NSMutableArray" id="lEB-yX-WkK"/>
+                        <segue destination="K2l-r1-28B" kind="show" identifier="FontDetailTableViewController" id="ONN-ip-7Bd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Fh-1G-FY4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2534.7826086956525" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1770" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7my-nm-KkL">
@@ -553,8 +567,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="fRF-Gl-0cR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -567,8 +579,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Menu" width="36" height="36"/>
         <image name="clear" catalog="system" width="64" height="56"/>
-        <image name="iconLightMenu" width="36" height="36"/>
+        <image name="list.bullet" catalog="system" width="64" height="44"/>
         <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
         <image name="photo" catalog="system" width="64" height="46"/>
         <image name="square.and.arrow.down" catalog="system" width="60" height="64"/>

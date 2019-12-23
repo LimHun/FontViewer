@@ -43,6 +43,8 @@ class SingleLabelViewController: UIViewController {
     
     var location = CGPoint(x: 0, y: 0)
     
+    let posX_gap : CGFloat = 50
+    
     let picker = UIImagePickerController()
     
     var pickedColor = #colorLiteral(red: 0.6813090444, green: 0.253660053, blue: 1, alpha: 1)
@@ -99,6 +101,12 @@ class SingleLabelViewController: UIViewController {
         setkeyboard()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let fontDetailTableViewController = segue.destination as? FontDetailTableViewController {
+            fontDetailTableViewController.fontName = fontName
+        }
+    }
+    
     func setkeyboard()
     {
         self.hideKeyboardWhenTappedAround()
@@ -151,7 +159,7 @@ class SingleLabelViewController: UIViewController {
         selectLabel.setAttributeString(lineSpacing: lineSpacing, lineHeightMultiple: lineSpacing, kernValue: paragraph)
         selectLabel.frame.size.width = width
         selectLabel.frame.size.height = selectLabel.text!.heightWithConstrainedWidth(width: width, font: selectLabel.font)
-        selectLabel.center = CGPoint(x: self.selectLabel.center.x, y: self.selectLabel.center.y)
+        selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2 + posX_gap, y: UIScreen.main.bounds.height/2)
         
         lineSpacingSlider.value = 0
         lineSpacingLabel.text = "0"
@@ -163,7 +171,12 @@ class SingleLabelViewController: UIViewController {
         lineSpacing = 0
         paragraph = 0
     }
-     
+    
+    @IBAction func actionGoSizeList(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "FontDetailTableViewController", sender: self)
+    }
+    
     @IBAction func actionCapture(_ sender: Any) {
         
         let image = self.view.asImage()
@@ -255,7 +268,7 @@ class SingleLabelViewController: UIViewController {
         selectLabel.setAttributeString(lineSpacing: 0, lineHeightMultiple: lineSpacing, kernValue: paragraph)
         
         self.selectLabel.frame.size.height = 700
-        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2 + posX_gap, y: UIScreen.main.bounds.height/2)
     }
     
     // 자간
@@ -267,7 +280,7 @@ class SingleLabelViewController: UIViewController {
         selectLabel.setAttributeString(lineSpacing: lineSpacing, lineHeightMultiple: lineSpacing, kernValue: paragraph)
         
         self.selectLabel.frame.size.height = 700
-        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2 + posX_gap, y: UIScreen.main.bounds.height/2)
     }
     
     @IBAction func actionStepperValueChanged(_ sender: UIStepper)
@@ -286,7 +299,7 @@ class SingleLabelViewController: UIViewController {
         naviLabelSize.text = z
         
         self.selectLabel.frame.size.height = 700
-        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+        self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2 + posX_gap, y: UIScreen.main.bounds.height/2)
     }
     
     @IBAction func actionInit(_ sender: Any)
@@ -295,7 +308,7 @@ class SingleLabelViewController: UIViewController {
         selectLabel.setAttributeString(lineSpacing: lineSpacing, lineHeightMultiple: lineSpacing, kernValue: paragraph)
         selectLabel.frame.size.width = width
         selectLabel.frame.size.height = 700
-        selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+        selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2 + posX_gap, y: UIScreen.main.bounds.height/2)
         
         lineSpacingSlider.value = 0
         lineSpacingLabel.text = "0"
@@ -314,11 +327,11 @@ class SingleLabelViewController: UIViewController {
     {
         if cMode == .left
         {
-            return CGPoint(x: location.x + selectLabel.frame.width / 2, y: location.y)
+            return CGPoint(x: location.x + selectLabel.frame.width / 2 + posX_gap, y: location.y)
         }
         else if cMode == .right
         {
-            return CGPoint(x: location.x - selectLabel.frame.width / 2, y: location.y)
+            return CGPoint(x: location.x - selectLabel.frame.width / 2 + posX_gap, y: location.y)
         }
         else
         {
