@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,7 @@
 		4014DB3823620FA900262BB8 /* SingleLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014DB3723620FA900262BB8 /* SingleLabelViewController.swift */; };
 		401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC3235E0F0E006B97CB /* AppDelegate.swift */; };
 		401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC5235E0F0E006B97CB /* SceneDelegate.swift */; };
-		401DEEC8235E0F0E006B97CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC7235E0F0E006B97CB /* ViewController.swift */; };
+		401DEEC8235E0F0E006B97CB /* FontListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC7235E0F0E006B97CB /* FontListViewController.swift */; };
 		401DEECB235E0F0E006B97CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401DEEC9235E0F0E006B97CB /* Main.storyboard */; };
 		401DEECD235E0F0F006B97CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401DEECC235E0F0F006B97CB /* Assets.xcassets */; };
 		401DEED0235E0F0F006B97CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401DEECE235E0F0F006B97CB /* LaunchScreen.storyboard */; };
@@ -88,7 +88,7 @@
 		401DEEC0235E0F0E006B97CB /* FontViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		401DEEC3235E0F0E006B97CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		401DEEC5235E0F0E006B97CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		401DEEC7235E0F0E006B97CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		401DEEC7235E0F0E006B97CB /* FontListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListViewController.swift; sourceTree = "<group>"; };
 		401DEECA235E0F0E006B97CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		401DEECC235E0F0F006B97CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		401DEECF235E0F0F006B97CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		401DEEDC235E13EF006B97CB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				401DEEC7235E0F0E006B97CB /* ViewController.swift */,
+				401DEEC7235E0F0E006B97CB /* FontListViewController.swift */,
 				4014DB2E2361FB2E00262BB8 /* FontDetailTableViewController.swift */,
 				4014DB3723620FA900262BB8 /* SingleLabelViewController.swift */,
 				40D4270D23674652004F573F /* AppInfoViewController.swift */,
@@ -378,7 +378,7 @@
 				};
 			};
 			buildConfigurationList = 401DEEBB235E0F0D006B97CB /* Build configuration list for PBXProject "FontViewer" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -507,7 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				407EE841235E2C8B00E93EEF /* DataManager.swift in Sources */,
-				401DEEC8235E0F0E006B97CB /* ViewController.swift in Sources */,
+				401DEEC8235E0F0E006B97CB /* FontListViewController.swift in Sources */,
 				401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */,
 				404AF88D237E5742009F6169 /* Test.swift in Sources */,
 				407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */,
@@ -666,7 +666,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = SJKHCRL68N;
 				INFOPLIST_FILE = FontViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -688,7 +688,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = SJKHCRL68N;
 				INFOPLIST_FILE = FontViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -28,7 +28,8 @@ class AppInfoViewController: UIViewController, SKProductsRequestDelegate {
         //donationButton.isHidden = true
         
         SKPaymentQueue.default().add(iapObserver)
-        let pIDs = Set(["com.tunko.fontviewer.Sponsoring"])
+//        let pIDs = Set(["com.tunko.fontviewer.Sponsoring"])
+        let pIDs = Set(["com.tunko.fontviewer.Sponsoring2"])
         productRequest = SKProductsRequest(productIdentifiers: pIDs)
         productRequest!.delegate = self
         

@@ -9,13 +9,14 @@
 import UIKit
 import GoogleMobileAds
 
-class ViewController: UIViewController
+class FontListViewController: UIViewController
 {
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var rightMenu: UIBarButtonItem!
-    
     @IBOutlet var bannerView: GADBannerView!
+    @IBOutlet var bannerHeight: NSLayoutConstraint!
+    @IBOutlet var tableBottomPosY: NSLayoutConstraint!
     
     var searchBar : UISearchBar! = nil
     
@@ -59,12 +60,38 @@ class ViewController: UIViewController
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         showSearchCancelMenu(isVisble: false)
+        
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+
+        do {
+            let items = try fm.contentsOfDirectory(atPath: path)
+
+            for item in items {
+                if item.contains(".otf") || item.contains(".ttf") {
+                    print(item.components(separatedBy: ".")[0])
+                    if let font = UIFont(name: item.components(separatedBy: ".")[0], size: 10) {
+                        print("fontName : \(font.fontName)")
+                    }
+
+
+                    DataManager.shared.dataFontList.append(item.components(separatedBy: ".")[0])
+                }
+            }
+        } catch {
+
+        }
     }
     
     func adsBannerSetting() {
         
         bannerView.delegate = self
+        #if DEBUG
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        #else
         bannerView.adUnitID = "ca-app-pub-9063444605027888/8951672388"
+        #endif
+        
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
@@ -73,8 +100,8 @@ class ViewController: UIViewController
            
         if let singleLabelViewController = segue.destination as? SingleLabelViewController {
             singleLabelViewController.fontName = filteredModels[selectIndex]
-            singleLabelViewController.fontSize = 20//selectFontSize
-            singleLabelViewController.fontContent = "안녕하세요"//printText
+            singleLabelViewController.fontSize = 20
+            singleLabelViewController.fontContent = "안녕하세요"
             
             if self.traitCollection.userInterfaceStyle == .dark {
                 // User Interface is Dark
@@ -141,12 +168,16 @@ class ViewController: UIViewController
     // Keyboard hide
     @objc func keyboardWillHide(_ notification: Notification)
     {
+        bannerHeight.constant = 50
+        tableBottomPosY.constant = 0
         handleKeyboardIssue(notification: notification, isAppearing: false)
     }
     
     // Keyboard show
     @objc func keyboardWillShow(_ notification: Notification)
     {
+        bannerHeight.constant = 0
+        tableBottomPosY.constant = -34
         handleKeyboardIssue(notification: notification, isAppearing: true)
     }
     
@@ -166,12 +197,11 @@ class ViewController: UIViewController
     }
 }
 
-extension ViewController : UITableViewDelegate, UITableViewDataSource
+extension FontListViewController : UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let count = filteredModels.count
-        print(count)
         return count
         
     }
@@ -180,8 +210,20 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
         
         let cell = tableView.dequeueReusableCell(withIdentifier: nibCellName, for: indexPath) as! FontMenuTableViewCell
         let fontName = filteredModels[indexPath.row]
-        
         cell.fontName.text = fontName
+        
+        if let range = fontName.range(of: searchBar!.text!) {
+            let substring = fontName[..<range.lowerBound]
+            let textIndex = substring.count
+            let length : Int = searchBar!.text!.count
+            let attributedString = NSMutableAttributedString(string: filteredModels[indexPath.row], attributes: [
+            .font: UIFont(name: "NotoSansCJKkr-Regular", size: 24.0)!,
+            .foregroundColor: UIColor(named: "Color/FontTitle")
+            ])
+            attributedString.addAttribute(.foregroundColor, value: UIColor(named: "Color/FontHighlight") , range: NSRange(location: textIndex, length: length))
+            cell.fontName.attributedText = attributedString
+        }
+        
         cell.fontReview.font = UIFont(name: fontName, size: 24)
         cell.fontReview.text = fontName
         cell.selectionStyle = .default
@@ -201,7 +243,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
     }
 }
 
-extension ViewController : UISearchBarDelegate {
+extension FontListViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
@@ -262,7 +304,7 @@ extension ViewController : UISearchBarDelegate {
     
 }
 
-extension ViewController : GADBannerViewDelegate {
+extension FontListViewController : GADBannerViewDelegate {
    
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {

@@ -198,8 +198,8 @@ extension FontDetailTableViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectFontSize = CGFloat(Int(initFontSize) + fontSizeGap * indexPath.row)
-        self.performSegue(withIdentifier: "FontDetailTableViewController", sender: self) 
+//        selectFontSize = CGFloat(Int(initFontSize) + fontSizeGap * indexPath.row)
+//        self.performSegue(withIdentifier: "FontDetailTableViewController", sender: self) 
     }
 }
 
