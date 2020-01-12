@@ -18,7 +18,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "imgLogoDark.png",
+      "filename" : "rectangle-2.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -45,7 +45,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "imgLogoDark@2x.png",
+      "filename" : "rectangle-3.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -72,7 +72,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "imgLogoDark@3x.png",
+      "filename" : "rectangle-4.png",
       "appearances" : [
         {
           "appearance" : "luminosity",

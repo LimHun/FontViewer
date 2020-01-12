@@ -53,6 +53,7 @@ class FontListViewController: UIViewController
         searchBar.placeholder = "Search :)"
         searchBar.showsCancelButton = false
         searchBar.searchBarStyle = .default
+        searchBar.setImage(UIImage(named: "Search"), for: .search, state: .normal)
         self.navigationController?.navigationBar.topItem?.titleView = searchBar
         
         self.navigationItem.largeTitleDisplayMode = .never
@@ -101,7 +102,6 @@ class FontListViewController: UIViewController
         if let singleLabelViewController = segue.destination as? SingleLabelViewController {
             singleLabelViewController.fontName = filteredModels[selectIndex]
             singleLabelViewController.fontSize = 20
-            singleLabelViewController.fontContent = "안녕하세요"
             
             if self.traitCollection.userInterfaceStyle == .dark {
                 // User Interface is Dark

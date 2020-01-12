@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splashscreen" highlightedImage=" " translatesAutoresizingMaskIntoConstraints="NO" id="3bG-ea-CYK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splashscreen" translatesAutoresizingMaskIntoConstraints="NO" id="3bG-ea-CYK">
                                 <rect key="frame" x="122" y="350" width="170" height="196"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="196" id="Zc6-23-bSW"/>
@@ -37,7 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" " width="16" height="16"/>
-        <image name="Splashscreen" width="170" height="196"/>
+        <image name="Splashscreen" width="201" height="200"/>
     </resources>
 </document>

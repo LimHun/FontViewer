@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "iconLightMenu.png",
+      "filename" : "iconMenu.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconLightMenu-1.png",
+      "filename" : "iconMenu-1.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -18,22 +18,23 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
+      "filename" : "iconMenu-2.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ]
+      ],
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconLightMenu@2x.png",
+      "filename" : "iconMenu@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconLightMenu@2x-1.png",
+      "filename" : "iconMenu@2x-1.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -44,22 +45,23 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
+      "filename" : "iconMenu@2x-2.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ]
+      ],
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconLightMenu@3x.png",
+      "filename" : "iconMenu@3x.png",
       "scale" : "3x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconLightMenu@3x-1.png",
+      "filename" : "iconMenu@3x-1.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -70,13 +72,14 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
+      "filename" : "iconMenu@3x-2.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ]
+      ],
+      "scale" : "3x"
     }
   ],
   "info" : {

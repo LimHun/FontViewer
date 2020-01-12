@@ -14,7 +14,6 @@
 		4014DB3823620FA900262BB8 /* SingleLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4014DB3723620FA900262BB8 /* SingleLabelViewController.swift */; };
 		401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC3235E0F0E006B97CB /* AppDelegate.swift */; };
 		401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC5235E0F0E006B97CB /* SceneDelegate.swift */; };
-		401DEEC8235E0F0E006B97CB /* FontListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC7235E0F0E006B97CB /* FontListViewController.swift */; };
 		401DEECB235E0F0E006B97CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401DEEC9235E0F0E006B97CB /* Main.storyboard */; };
 		401DEECD235E0F0F006B97CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401DEECC235E0F0F006B97CB /* Assets.xcassets */; };
 		401DEED0235E0F0F006B97CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 401DEECE235E0F0F006B97CB /* LaunchScreen.storyboard */; };
@@ -75,6 +74,8 @@
 		407EE8E1235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */; };
 		40949A0E2373CBAD00984B75 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40949A0D2373CBAD00984B75 /* Toast.swift */; };
 		4094EECE23732AF90043472C /* PHPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094EECD23732AF90043472C /* PHPhotoLibrary.swift */; };
+		409614F323CB37C500C805FB /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409614F223CB37C500C805FB /* CustomSlider.swift */; };
+		40BEC2DB23C3974E002444B8 /* FontListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DEEC7235E0F0E006B97CB /* FontListViewController.swift */; };
 		40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D4270D23674652004F573F /* AppInfoViewController.swift */; };
 		40D4271023675098004F573F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D4270F23675098004F573F /* StoreKit.framework */; };
 		40DA8936236AC24D00862227 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DA8935236AC24D00862227 /* Extension.swift */; };
@@ -150,6 +151,7 @@
 		407EE8DA235E3E5600E93EEF /* NotoSerifCJKkr-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerifCJKkr-SemiBold.otf"; sourceTree = "<group>"; };
 		40949A0D2373CBAD00984B75 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4094EECD23732AF90043472C /* PHPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPhotoLibrary.swift; sourceTree = "<group>"; };
+		409614F223CB37C500C805FB /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		40D4270D23674652004F573F /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		40D4270F23675098004F573F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		40DA8935236AC24D00862227 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				401DEED8235E11C4006B97CB /* FontMenuTableViewCell.xib */,
 				4014DB302361FBE300262BB8 /* FontTableViewCell.swift */,
 				4014DB312361FBE300262BB8 /* FontTableViewCell.xib */,
+				409614F223CB37C500C805FB /* CustomSlider.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -507,16 +510,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				407EE841235E2C8B00E93EEF /* DataManager.swift in Sources */,
-				401DEEC8235E0F0E006B97CB /* FontListViewController.swift in Sources */,
 				401DEED9235E11C4006B97CB /* FontMenuTableViewCell.swift in Sources */,
 				404AF88D237E5742009F6169 /* Test.swift in Sources */,
 				407EE843235E31AF00E93EEF /* extensionClass.swift in Sources */,
 				401DEEC4235E0F0E006B97CB /* AppDelegate.swift in Sources */,
 				40949A0E2373CBAD00984B75 /* Toast.swift in Sources */,
 				40D4270E23674652004F573F /* AppInfoViewController.swift in Sources */,
+				40BEC2DB23C3974E002444B8 /* FontListViewController.swift in Sources */,
 				40DA8936236AC24D00862227 /* Extension.swift in Sources */,
 				4014DB322361FBE300262BB8 /* FontTableViewCell.swift in Sources */,
 				401DEEC6235E0F0E006B97CB /* SceneDelegate.swift in Sources */,
+				409614F323CB37C500C805FB /* CustomSlider.swift in Sources */,
 				404AF892237E9F88009F6169 /* StoreObserver.swift in Sources */,
 				4014DB2F2361FB2E00262BB8 /* FontDetailTableViewController.swift in Sources */,
 				4094EECE23732AF90043472C /* PHPhotoLibrary.swift in Sources */,
