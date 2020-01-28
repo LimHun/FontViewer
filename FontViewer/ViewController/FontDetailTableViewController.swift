@@ -20,13 +20,13 @@ class FontDetailTableViewController: UIViewController {
     @IBOutlet var buttons : [UIButton] = []
     
     let initFontSize : CGFloat = 10
-    let initMessage : String = "Hello. 안녕하세요^ㅡ^"
+    let initMessage : String = "Hello, 안녕하세요. 반갑습니다"
     let nibCellName : String = "FontTableViewCell"
     
     var fontSizeGap : Int = 1
     var fontName : String = ""
     
-    var printText : String = ""
+    var printText : String = "Hello, 안녕하세요. 반갑습니다"
     var selectFontSize : CGFloat = 12
     var pickedColor : UIColor = .label
     
@@ -186,7 +186,7 @@ extension FontDetailTableViewController : UITableViewDelegate, UITableViewDataSo
     { 
         let cell = tableView.dequeueReusableCell(withIdentifier: nibCellName, for: indexPath) as! FontTableViewCell
         cell.selectionStyle = .none
-        cell.fontSize.text = getRowFontSize(indexPath)
+        cell.fontSize.text = getRowFontSize(indexPath) + "pt"
         cell.contentText.textColor = self.pickedColor
         setContentTextSetting(indexPath, cell.contentText)
         setContentText(cell.contentText)

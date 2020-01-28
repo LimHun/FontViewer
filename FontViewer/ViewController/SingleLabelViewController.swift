@@ -21,7 +21,11 @@ class SingleLabelViewController: UIViewController {
     @IBOutlet var backGround: UIImageView!
     @IBOutlet var selectLabel: UILabel!
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
-    @IBOutlet var editingViewHeight: NSLayoutConstraint!
+    @IBOutlet var showButton: UIBarButtonItem!
+    @IBOutlet var listButton: UIBarButtonItem!
+    @IBOutlet var textField: UITextField!
+    
+    @IBOutlet var uis : [UIView] = []
     
     let picker = UIImagePickerController()
     let initMessage : String = "Hello. 안녕하세요^ㅡ^"
@@ -37,6 +41,7 @@ class SingleLabelViewController: UIViewController {
     var pickedColor = #colorLiteral(red: 0.6813090444, green: 0.253660053, blue: 1, alpha: 1)
     
     var selectBtnIndex = -1
+    var blindState : Bool = true
     
     struct sMenuButton {
         let imageOn : String
@@ -65,6 +70,12 @@ class SingleLabelViewController: UIViewController {
         setSelectLabel(initMessage)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let fontDetailTableViewController = segue.destination as? FontDetailTableViewController {
+            fontDetailTableViewController.fontName = fontName
+        }
+    }
+    
     func setUI()
     {
         for (index, btn) in buttons.enumerated() {
@@ -81,6 +92,7 @@ class SingleLabelViewController: UIViewController {
         menuSlider.minimumTrackTintColor = UIColor(named: "Color/TextFieldBackground")
         
         picker.delegate = self
+        textField.addTarget(self, action: #selector(textChange), for: .editingChanged)
         
         setSliderOption(min: 0, max: 10)
         
@@ -88,9 +100,18 @@ class SingleLabelViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         
         // 네비게이션 투명
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationController!.navigationBar.isTranslucent = true
+//        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController!.navigationBar.shadowImage = UIImage()
+//        self.navigationController!.navigationBar.isTranslucent = true
+    }
+    
+    @objc func textChange()
+    {
+        if textField.text!.count == 0 {
+            selectLabel.text = initMessage
+        } else {
+            selectLabel.text = textField.text
+        }
     }
     
     func setkeyboard()
@@ -116,6 +137,7 @@ class SingleLabelViewController: UIViewController {
     @objc func keyboardWillShow(_ notification: Notification)
     {
         handleKeyboardIssue(notification: notification, isAppearing: true)
+        inputViewBottomAnchor.constant = -300
     }
 
     fileprivate func handleKeyboardIssue(notification: Notification, isAppearing: Bool)
@@ -123,10 +145,8 @@ class SingleLabelViewController: UIViewController {
         guard let userInfo = notification.userInfo as? [String:Any] else {return}
         guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
         guard let keyboardShowAnimateDuartion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber else {return}
-        let keyboardHeight = keyboardFrame.cgRectValue.height
+//        let keyboardHeight = keyboardFrame.cgRectValue.height
 
-        let heightConstant = isAppearing ? keyboardHeight : 0
-        inputViewBottomAnchor.constant = heightConstant - 35
         UIView.animate(withDuration: keyboardShowAnimateDuartion.doubleValue)
         {
             self.view.layoutIfNeeded()
@@ -148,6 +168,25 @@ class SingleLabelViewController: UIViewController {
     }
     
     @IBAction func actionUIBlind(_ sender: Any) {
+        
+        if blindState {
+            for view in uis {
+                view.isHidden = true
+            }
+            listButton.image = nil
+            listButton.title = ""
+            
+            showButton.image = UIImage(named: "iconShowOff")
+            blindState = false
+        } else {
+            for view in uis {
+                view.isHidden = false
+            }
+            listButton.image = UIImage(named: "iconTextlist")
+            
+            showButton.image = UIImage(named: "iconShowOn")
+            blindState = true
+        }
     }
     
     @IBAction func actionLabelList(_ sender: Any) {
@@ -189,7 +228,7 @@ class SingleLabelViewController: UIViewController {
             self.selectLabel.frame.size.height = 700
             self.selectLabel.center = CGPoint(x: UIScreen.main.bounds.width/2 + posX_gap, y: UIScreen.main.bounds.height/2)
         }
-       
+        
         if selectBtnIndex == 7 {
             let value = (sender as! UISlider).value
             selectLabel.font = UIFont(name: fontName, size: CGFloat(value))
@@ -395,7 +434,7 @@ extension SingleLabelViewController : UITextViewDelegate
             height = 40
         }
 
-        editingViewHeight.constant = height
+        //editingViewHeight.constant = height
     }
 
     func setInputBoxButton(_ textView: UITextView)

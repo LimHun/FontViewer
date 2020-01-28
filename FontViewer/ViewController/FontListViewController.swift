@@ -56,9 +56,9 @@ class FontListViewController: UIViewController
         searchBar.setImage(UIImage(named: "Search"), for: .search, state: .normal)
         self.navigationController?.navigationBar.topItem?.titleView = searchBar
         
-        self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationItem.largeTitleDisplayMode = .never
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         showSearchCancelMenu(isVisble: false)
         
@@ -226,7 +226,7 @@ extension FontListViewController : UITableViewDelegate, UITableViewDataSource
         
         cell.fontReview.font = UIFont(name: fontName, size: 24)
         cell.fontReview.text = fontName
-        cell.selectionStyle = .default
+        cell.selectionStyle = .none
         
         return cell
         
