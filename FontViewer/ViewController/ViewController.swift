@@ -14,7 +14,7 @@ class FontListViewController: UIViewController
     @IBOutlet var inputViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var rightMenu: UIBarButtonItem!
-    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet var bannerView: GADBannerView!
     @IBOutlet var bannerHeight: NSLayoutConstraint!
     @IBOutlet var tableBottomPosY: NSLayoutConstraint!
     
@@ -53,12 +53,11 @@ class FontListViewController: UIViewController
         searchBar.placeholder = "Search :)"
         searchBar.showsCancelButton = false
         searchBar.searchBarStyle = .default
-        searchBar.setImage(UIImage(named: "Search"), for: .search, state: .normal)
         self.navigationController?.navigationBar.topItem?.titleView = searchBar
         
-//        self.navigationItem.largeTitleDisplayMode = .never
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         showSearchCancelMenu(isVisble: false)
         
@@ -86,7 +85,7 @@ class FontListViewController: UIViewController
     
     func adsBannerSetting() {
         
-        //bannerView.delegate = self
+        bannerView.delegate = self
         #if DEBUG
         bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
         #else
@@ -102,6 +101,7 @@ class FontListViewController: UIViewController
         if let singleLabelViewController = segue.destination as? SingleLabelViewController {
             singleLabelViewController.fontName = filteredModels[selectIndex]
             singleLabelViewController.fontSize = 20
+            singleLabelViewController.fontContent = "안녕하세요"
             
             if self.traitCollection.userInterfaceStyle == .dark {
                 // User Interface is Dark
@@ -226,7 +226,7 @@ extension FontListViewController : UITableViewDelegate, UITableViewDataSource
         
         cell.fontReview.font = UIFont(name: fontName, size: 24)
         cell.fontReview.text = fontName
-        cell.selectionStyle = .none
+        cell.selectionStyle = .default
         
         return cell
         
@@ -304,38 +304,38 @@ extension FontListViewController : UISearchBarDelegate {
     
 }
 
-//extension FontListViewController : GADBannerViewDelegate {
-//
-//    /// Tells the delegate an ad request loaded an ad.
-//    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-//      print("adViewDidReceiveAd")
-//    }
-//
-//    /// Tells the delegate an ad request failed.
-//    func adView(_ bannerView: GADBannerView,
-//        didFailToReceiveAdWithError error: GADRequestError) {
-//      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-//    }
-//
-//    /// Tells the delegate that a full-screen view will be presented in response
-//    /// to the user clicking on an ad.
-//    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-//      print("adViewWillPresentScreen")
-//    }
-//
-//    /// Tells the delegate that the full-screen view will be dismissed.
-//    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-//      print("adViewWillDismissScreen")
-//    }
-//
-//    /// Tells the delegate that the full-screen view has been dismissed.
-//    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-//      print("adViewDidDismissScreen")
-//    }
-//
-//    /// Tells the delegate that a user click will open another app (such as
-//    /// the App Store), backgrounding the current app.
-//    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-//      print("adViewWillLeaveApplication")
-//    }
-//}
+extension FontListViewController : GADBannerViewDelegate {
+   
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+      print("adViewDidReceiveAd")
+    }
+
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+        didFailToReceiveAdWithError error: GADRequestError) {
+      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    /// Tells the delegate that a full-screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+      print("adViewWillPresentScreen")
+    }
+
+    /// Tells the delegate that the full-screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewWillDismissScreen")
+    }
+
+    /// Tells the delegate that the full-screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+      print("adViewDidDismissScreen")
+    }
+
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+      print("adViewWillLeaveApplication")
+    }
+}

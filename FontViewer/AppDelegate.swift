@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-9063444605027888~8934881583")
+//        GADMobileAds.configure(withApplicationID: "ca-app-pub-9063444605027888~8934881583")
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // 3초 런치 스크린 딜레이

@@ -12,5 +12,6 @@ pod 'FlexColorPicker'
 pod 'SwiftyJSON', '~> 4.0'
 pod 'KMPlaceholderTextView', '~> 1.4.0'
 pod 'Google-Mobile-Ads-SDK'
+pod 'Alamofire', '> 5.0.0-beta.4'
 
 end
