@@ -295,7 +295,6 @@ class SingleLabelViewController: UIViewController {
             
             let colorPickerController = DefaultColorPickerViewController()
             colorPickerController.delegate = self
-//            navigationController?.pushViewController(colorPickerController, animated: true)
             let navigationController = UINavigationController(rootViewController: colorPickerController)
             present(navigationController, animated: true, completion: nil)
             break
